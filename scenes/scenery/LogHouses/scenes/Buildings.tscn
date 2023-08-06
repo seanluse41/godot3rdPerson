@@ -1,0 +1,108 @@
+[gd_scene load_steps=25 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_5.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_6.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_17.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_10.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_16.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_13.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_19.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_8.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_18.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_9.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_12.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_15.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_11.tscn" id="13"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_20.tscn" id="14"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_7.tscn" id="15"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_14.tscn" id="16"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="17"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_3.tscn" id="18"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_4.tscn" id="19"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="20"]
+[ext_resource type="PackedScene" path="res://assets/player/Player.tscn" id="21"]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 200, 2, 200 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.113725, 0.466667, 0.113725, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -100, 1, 100, 100, 1, 100, -100, -1, 100, 100, 1, 100, 100, -1, 100, -100, -1, 100, 100, 1, -100, -100, 1, -100, 100, -1, -100, -100, 1, -100, -100, -1, -100, 100, -1, -100, 100, 1, 100, 100, 1, -100, 100, -1, 100, 100, 1, -100, 100, -1, -100, 100, -1, 100, -100, 1, -100, -100, 1, 100, -100, -1, -100, -100, 1, 100, -100, -1, 100, -100, -1, -100, 100, 1, 100, -100, 1, 100, 100, 1, -100, -100, 1, 100, -100, 1, -100, 100, 1, -100, -100, -1, 100, 100, -1, 100, -100, -1, -100, 100, -1, 100, 100, -1, -100, -100, -1, -100 )
+
+[node name="Buildings" type="Spatial"]
+
+[node name="Build_1" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 39 )
+
+[node name="Build_2" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 29 )
+
+[node name="Build_3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -27 )
+
+[node name="Build_4" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, -10 )
+
+[node name="Build_5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 28 )
+
+[node name="Build_6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 45 )
+
+[node name="Build_7" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -27 )
+
+[node name="Build_8" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -22 )
+
+[node name="Build_9" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 3 )
+
+[node name="Build_10" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 36 )
+
+[node name="Build_11" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 9 )
+
+[node name="Build_12" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 36 )
+
+[node name="Build_13" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 27 )
+
+[node name="Build_14" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 29 )
+
+[node name="Build_15" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -25 )
+
+[node name="Build_16" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -6 )
+
+[node name="Build_17" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -1 )
+
+[node name="Build_18" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 14 )
+
+[node name="Build_19" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 16 )
+
+[node name="Build_20" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 8 )
+gravity_scale = 0.5

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhgoqh3obu3ue"]
+
+[ext_resource type="PackedScene" uid="uid://enkt6vr4levo" path="res://imports/lamplight.FBX" id="1_v6y4f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbj7e"]
+transparency = 1
+blend_mode = 1
+refraction_scale = 0.95
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs0jt"]
+transparency = 1
+blend_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6wpc"]
+transparency = 1
+blend_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7w7q"]
+transparency = 1
+blend_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lect3"]
+transparency = 1
+blend_mode = 1
+
+[node name="lamplight" instance=ExtResource("1_v6y4f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Omni001" parent="RootNode" index="0"]
+transform = Transform3D(0.2, 0, 0, 0, -2.38419e-08, -0.2, 0, 0.2, -2.38419e-08, -0.0523749, 0.0310854, 0)
+light_color = Color(0.959987, 0.570831, 0.177292, 1)
+light_energy = 1.165
+light_indirect_energy = 2.08
+light_volumetric_fog_energy = 4.828
+
+[node name="Omni002" parent="RootNode" index="1"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0.0359944, 0.00292404)
+light_color = Color(0.578223, 0.255409, 0, 1)
+light_energy = 4.143
+light_volumetric_fog_energy = 6.081
+
+[node name="Sphere001" parent="RootNode" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dbj7e")
+
+[node name="Rectangle003" parent="RootNode" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gs0jt")
+
+[node name="Rectangle002" parent="RootNode" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q6wpc")
+
+[node name="Rectangle004" parent="RootNode" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c7w7q")
+
+[node name="Rectangle001" parent="RootNode" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lect3")

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctr3aao2xlt3n"]
+
+[ext_resource type="Texture2D" uid="uid://bc1iho0f2jvdb" path="res://scenes/scenery/LogHouses/Textures/WoodFloor/WoodFloor_Base Color_2.png" id="1_2qhp0"]
+[ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="2_wgmvo"]
+[ext_resource type="PackedScene" uid="uid://bhgoqh3obu3ue" path="res://scenes/scenery/lamp.tscn" id="3_wrh6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_472hf"]
+resource_local_to_scene = true
+size = Vector3(30, 0.5, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iq5eq"]
+resource_local_to_scene = true
+size = Vector3(30, 0.5, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alv75"]
+resource_local_to_scene = true
+albedo_color = Color(0.254902, 0.360784, 0.34902, 1)
+albedo_texture = ExtResource("1_2qhp0")
+metallic_specular = 0.0
+uv1_triplanar = true
+
+[node name="inHouse1" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_472hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_iq5eq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
+
+[node name="ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ceiling"]
+shape = SubResource("BoxShape3D_472hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ceiling"]
+mesh = SubResource("BoxMesh_iq5eq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
+
+[node name="walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="1" type="StaticBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -6, -11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/1"]
+shape = SubResource("BoxShape3D_472hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/1"]
+mesh = SubResource("BoxMesh_iq5eq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
+
+[node name="2" type="StaticBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -6, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/2"]
+shape = SubResource("BoxShape3D_472hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/2"]
+mesh = SubResource("BoxMesh_iq5eq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
+
+[node name="3" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -10, -6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/3"]
+shape = SubResource("BoxShape3D_472hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/3"]
+mesh = SubResource("BoxMesh_iq5eq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
+
+[node name="4" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 9, -6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/4"]
+shape = SubResource("BoxShape3D_472hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/4"]
+mesh = SubResource("BoxMesh_iq5eq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
+
+[node name="player" parent="." instance=ExtResource("2_wgmvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276135, 0)
+
+[node name="lamplight" parent="." instance=ExtResource("3_wrh6t")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 8.42365, 3, 0)
