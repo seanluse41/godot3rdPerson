@@ -1,12 +1,12 @@
 extends Control
 @onready var can = $MarginContainer/Panel/can
-@onready var cant = $MarginContainer/Panel/cant
+@onready var canNot = $MarginContainer/Panel/canNot
 
 
 func canInteract():
 	can.show()
-	cant.hide()
+	canNot.hide()
 
-func cantInteract():
+func canNotInteract():
 	can.hide()
-	cant.show()
+	canNot.show()

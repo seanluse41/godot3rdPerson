@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://drculkbctmmos"]
 
 [ext_resource type="Script" path="res://scripts/interactBox.gd" id="1_r6rda"]
 
@@ -54,7 +54,7 @@ text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="cant" type="Label" parent="MarginContainer/Panel"]
+[node name="canNot" type="Label" parent="MarginContainer/Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 8

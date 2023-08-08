@@ -3,8 +3,15 @@ extends Node
 
 func _interactionStart(interaction: Callable):
 	interaction.call()
-	await Signals.interactionFinished
-	_interactionFinished()
 
 func _interactionFinished():
-	print("interaction finished")
+	Signals.interactionFinished.emit()
+
+func _canInteract(node):
+	Signals.canInteract.emit(node)
+	
+func _canNotInteract(node):
+	Signals.canNotInteract.emit(node)
+
+func _leftInteractArea():
+	Signals.leftInteractArea.emit()

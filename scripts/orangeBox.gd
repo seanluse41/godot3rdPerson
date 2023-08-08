@@ -5,4 +5,10 @@ func onInteract():
 
 func orangeBox():
 	print(self, "interacted")
-	Signals.interactionFinished.emit()
+	_interactionFinished()
+
+func _on_area_3d_body_entered(body):
+	_canNotInteract(self)
+
+func _on_area_3d_body_exited(body):
+	_leftInteractArea()

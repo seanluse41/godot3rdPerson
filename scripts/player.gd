@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var animation_player = %AnimationPlayer
 @onready var interact_box = $interactBox
 @onready var camera_mount = $CameraMount
+@onready var interact_timer = $interactBox/interactTimer
 
 
 var SPEED = 3.0
@@ -25,6 +26,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Signals.interactionFinished.connect(_unlockCharacter)
+	Signals.canInteract.connect(_handleCanInteractBox)
+	Signals.canNotInteract.connect(_handleCanNotInteractBox)
+	Signals.leftInteractArea.connect(_handleLeftInteractArea)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
@@ -44,7 +48,6 @@ func _physics_process(delta):
 			if animation_player.current_animation != "kick":
 				animation_player.play("kick")
 				isLocked = true
-	
 	if Input.is_action_just_pressed("interact"):
 		if isLocked:
 			pass
@@ -94,21 +97,26 @@ func _physics_process(delta):
 func _unlockCharacter():
 	isLocked = false
 
-func _on_area_3d_body_entered(body):
-	print("area entered")
-	print(body)
-	canInteract = true
+func _handleCanInteractBox(node: Node):
+	currentInteractable = node
 	interact_box.show()
-	if body.has_method("onInteract"):
-		interact_box.canInteract()
-	else:
-		interact_box.cantInteract()
-	currentInteractable = body
+	interact_box.canInteract()
+	canInteract = true
 
-func _on_area_3d_body_exited(_body):
+func _handleCanNotInteractBox(node: Node):
+	currentInteractable = node
+	interact_box.show()
+	interact_box.canNotInteract()
 	canInteract = false
-	interact_box.hide()
+
+func _handleLeftInteractArea():
 	currentInteractable = null
+	interact_box.hide()
+	canInteract = false
+
+func _resetInteract():
+	if currentInteractable:
+		interact_box.show()
 
 func interact():
 	if not canInteract:
@@ -117,3 +125,9 @@ func interact():
 		if currentInteractable.has_method("onInteract"):
 			isLocked = true
 			currentInteractable.onInteract()
+			interact_box.hide()
+			interact_timer.start()
+
+
+func _on_interact_timer_timeout():
+	_resetInteract()
