@@ -1,23 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://1wfaiittq213"]
 
-[ext_resource type="Texture2D" uid="uid://cm5m7nr7dugjd" path="res://imports/kenny/Purple/texture_09.png" id="1_yro6c"]
+[ext_resource type="Shader" path="res://scripts/purple_box.gdshader" id="1_cmv5f"]
 [ext_resource type="Script" path="res://scripts/purpleBox.gd" id="2_o8tms"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6a0g"]
-albedo_texture = ExtResource("1_yro6c")
-uv1_triplanar = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7aunw"]
+render_priority = 0
+shader = ExtResource("1_cmv5f")
+shader_parameter/wave_height = 0.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2rxcs"]
 height = 2.44371
 radius = 1.663
 
-[node name="purpleBox" type="CSGBox3D"]
+[node name="purpleBox" type="CSGSphere3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_f6a0g")
 use_collision = true
 collision_layer = 2
 collision_mask = 4
-size = Vector3(2, 2, 2)
+radial_segments = 20
+rings = 10
+material = SubResource("ShaderMaterial_7aunw")
 script = ExtResource("2_o8tms")
 
 [node name="Area3D" type="Area3D" parent="."]

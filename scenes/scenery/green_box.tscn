@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://0eo27yglj2qi"]
+[gd_scene load_steps=3 format=3 uid="uid://0eo27yglj2qi"]
 
 [ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="1_v0ohg"]
-[ext_resource type="Script" path="res://scripts/green_box.gd" id="2_m0xfl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joh53"]
 albedo_texture = ExtResource("1_v0ohg")
@@ -13,4 +12,3 @@ material_override = SubResource("StandardMaterial3D_joh53")
 use_collision = true
 collision_layer = 2
 size = Vector3(3, 3, 3)
-script = ExtResource("2_m0xfl")
