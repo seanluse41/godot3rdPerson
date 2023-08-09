@@ -12,4 +12,6 @@ signal interactionFinished
 
 signal startLoading
 
+signal animationFinished
+
 signal finishedLoading

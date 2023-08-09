@@ -128,6 +128,5 @@ func interact():
 			interact_box.hide()
 			interact_timer.start()
 
-
 func _on_interact_timer_timeout():
 	_resetInteract()

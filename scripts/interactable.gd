@@ -1,6 +1,8 @@
 class_name Interactable
 extends Node
 
+var canInteract := false
+
 func _interactionStart(interaction: Callable):
 	interaction.call()
 
