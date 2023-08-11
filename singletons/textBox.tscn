@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cffuu6p2177rl"]
 
-[ext_resource type="Script" path="res://scripts/textBox.gd" id="1_sarp5"]
+[ext_resource type="Script" path="res://singletons/textBox.gd" id="1_tvts2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7i0bf"]
 bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
@@ -10,13 +10,14 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="textBox" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sarp5")
+script = ExtResource("1_tvts2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -53,5 +54,6 @@ theme_override_constants/margin_right = 32
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
+text = "This is some test text for a default."
 visible_characters = 0
 visible_ratio = 0.0

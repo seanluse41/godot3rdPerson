@@ -41,16 +41,14 @@ func _input(event):
 		$CameraMount.rotation.x = clamp($CameraMount.rotation.x, -0.6, 0.6)
 
 func _physics_process(delta):
-	if !animation_player.is_playing():
-		isLocked = false	
 	if Input.is_action_just_pressed("kick"):
 		if is_on_floor():
-			if animation_player.current_animation != "kick":
+			if not isLocked:
 				animation_player.play("kick")
 				isLocked = true
 	if Input.is_action_just_pressed("interact"):
-		if isLocked:
-			pass
+		if TextBox.visible:
+			Signals.textSkip.emit()
 		else:
 			interact()
 	
@@ -68,7 +66,7 @@ func _physics_process(delta):
 		get_tree().quit()
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not isLocked:
 		velocity.y = JUMP_VELOCITY
 
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
@@ -115,12 +113,12 @@ func _handleLeftInteractArea():
 	canInteract = false
 
 func _resetInteract():
-	if currentInteractable:
+	if currentInteractable and canInteract:
 		interact_box.show()
 
 func interact():
 	if not canInteract:
-		pass
+		Signals.textSkip.emit()
 	else:
 		if currentInteractable.has_method("onInteract"):
 			isLocked = true

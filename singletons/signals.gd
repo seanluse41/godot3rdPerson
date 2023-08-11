@@ -10,8 +10,16 @@ signal leftInteractArea
 
 signal interactionFinished
 
-signal startLoading
+signal loadingStarted
 
 signal animationFinished
 
-signal finishedLoading
+signal loadingFinished
+
+signal textStarted(text)
+
+signal textSkip
+
+signal textFinished
+
+signal textClose

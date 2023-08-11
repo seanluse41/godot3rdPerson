@@ -21,6 +21,7 @@ radial_segments = 20
 rings = 10
 material = SubResource("ShaderMaterial_7aunw")
 script = ExtResource("2_o8tms")
+testText = "This was a purple box. Now I made it into a floating goo thing."
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16

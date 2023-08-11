@@ -9,11 +9,11 @@ func switchScene(nextScene):
 	call_deferred("_deferredSwitchScene", nextScene)
 
 func _deferredSwitchScene(nextScene):
-	Signals.startLoading.emit()
+	Signals.loadingStarted.emit()
 	currentScene.queue_free()
 	var s = ResourceLoader.load(nextScene)
 	currentScene = s.instantiate()
 	get_tree().root.add_child(currentScene)
 	get_tree().current_scene = currentScene
 	await get_tree().create_timer(2).timeout
-	Signals.finishedLoading.emit()
+	Signals.loadingFinished.emit()
