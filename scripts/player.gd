@@ -118,7 +118,7 @@ func _resetInteract():
 
 func interact():
 	if not canInteract:
-		Signals.textSkip.emit()
+		pass
 	else:
 		if currentInteractable.has_method("onInteract"):
 			isLocked = true

@@ -10,7 +10,7 @@ func _ready():
 	Signals.textSkip.connect(_handleSkipText)
 	Signals.textClose.connect(_closeTextBox)
 
-func _process(delta):
+func _process(_delta):
 	if label.visible_ratio < 1.0:
 		isAnimating = true
 	else:
