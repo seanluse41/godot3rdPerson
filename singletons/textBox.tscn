@@ -49,11 +49,28 @@ offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+
+[node name="label" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 41
 text = "This is some test text for a default."
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="nextLine" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 26
+text = "V"
+
+[node name="nextLineTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="nextLineTimer" to="." method="_on_next_line_timer_timeout"]
