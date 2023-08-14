@@ -1,21 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdho5lfj3ehly"]
+[gd_scene load_steps=9 format=3 uid="uid://bdho5lfj3ehly"]
 
 [ext_resource type="Texture2D" uid="uid://b58xv1joypxo5" path="res://imports/kenny/Orange/texture_09.png" id="1_m3taq"]
+[ext_resource type="Texture2D" uid="uid://ct6ufttqsgq22" path="res://imports/kenny/Orange/texture_04.png" id="2_j84yj"]
 [ext_resource type="Script" path="res://scripts/orangeBox.gd" id="2_y0xsv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gxbu"]
 albedo_texture = ExtResource("1_m3taq")
 uv1_triplanar = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_2at7u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft88o"]
+albedo_texture = ExtResource("2_j84yj")
+uv1_triplanar = true
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0x24g"]
 height = 1.52454
 radius = 1.36387
 
-[node name="orangeBox" type="CSGBox3D"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0.518171, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_4mi4d"]
+
+[node name="orangeBox" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518171, 0)
 material_override = SubResource("StandardMaterial3D_5gxbu")
-use_collision = true
-collision_layer = 2
+mesh = SubResource("BoxMesh_2at7u")
+surface_material_override/0 = SubResource("StandardMaterial3D_ft88o")
 script = ExtResource("2_y0xsv")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -25,6 +34,11 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257755, 0)
 shape = SubResource("CylinderShape3D_0x24g")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_4mi4d")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

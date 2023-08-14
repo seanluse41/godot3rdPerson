@@ -52,9 +52,7 @@ func _handleSkipText():
 		_closeTextBox()
 
 func _toggleNextLineShow():
-	print("toggle")
 	next_line.visible = !next_line.visible
 
 func _on_next_line_timer_timeout():
-	print("timeout")
 	_toggleNextLineShow()
