@@ -21,6 +21,7 @@ Signals="*res://singletons/signals.gd"
 SceneSwitcher="*res://singletons/sceneSwitcher.gd"
 SceneTransition="*res://singletons/scene_transition.tscn"
 TextBox="*res://singletons/textBox.tscn"
+GlobalAudio="*res://singletons/globalAudio.tscn"
 
 [display]
 
