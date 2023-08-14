@@ -6,7 +6,6 @@ extends CharacterBody3D
 @onready var camera_mount = $CameraMount
 @onready var interact_timer = $interactBox/interactTimer
 
-
 var SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
@@ -38,7 +37,7 @@ func _input(event):
 		rotate_y(deg_to_rad(twistInput))
 		visuals.rotate_y(deg_to_rad(-twistInput))
 		$CameraMount.rotate_x(pitchInput)
-		$CameraMount.rotation.x = clamp($CameraMount.rotation.x, -0.6, 0.6)
+		$CameraMount.rotation.x = clamp($CameraMount.rotation.x, -0.5, 0.5)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("kick"):
@@ -113,6 +112,7 @@ func _handleLeftInteractArea():
 
 func _resetInteract():
 	if currentInteractable and canInteract:
+		await Signals.interactionFinished
 		interact_box.show()
 
 func interact():
