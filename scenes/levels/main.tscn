@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnc40sia33418"]
+[gd_scene load_steps=17 format=3 uid="uid://dnc40sia33418"]
 
 [ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="1_rq34t"]
 [ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="3_atq33"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="7_kgfcu"]
 [ext_resource type="PackedScene" uid="uid://ctr3aao2xlt3n" path="res://scenes/levels/inHouse1.tscn" id="8_lgouw"]
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="9_23unj"]
+[ext_resource type="AudioStream" uid="uid://d1tmrwajb1h5w" path="res://imports/zelda-in-a-house.mp3" id="9_xfm07"]
 [ext_resource type="PackedScene" uid="uid://2wtuhatih1jq" path="res://scenes/levels/puzzles/orangeBox/orangeBoxPuzzle.tscn" id="10_ncgju"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qn56r"]
@@ -85,6 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="house1" parent="." instance=ExtResource("3_atq33")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.565316, 10)
 houseInnerScene = ExtResource("8_lgouw")
+nextTrack = ExtResource("9_xfm07")
 
 [node name="orangeBox" parent="." instance=ExtResource("9_23unj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.51817, 0)
