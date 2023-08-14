@@ -51,7 +51,6 @@ func _physics_process(delta):
 			Signals.textSkip.emit()
 		else:
 			interact()
-	
 	if Input.is_action_pressed("run"):
 		SPEED = runningSpeed
 		isRunning = true
@@ -128,3 +127,6 @@ func interact():
 
 func _on_interact_timer_timeout():
 	_resetInteract()
+
+func _on_animation_player_animation_finished(anim_name):
+	_unlockCharacter()
