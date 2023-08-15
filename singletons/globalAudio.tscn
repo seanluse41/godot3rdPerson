@@ -5,4 +5,6 @@
 
 [node name="GlobalAudio" type="AudioStreamPlayer"]
 stream = ExtResource("1_yjkw8")
+volume_db = -10.0
+pitch_scale = 0.55
 script = ExtResource("2_ko3iq")

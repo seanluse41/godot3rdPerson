@@ -1,14 +1,16 @@
 extends Interactable
 
-@export var orangeBoxPuzzle: PackedScene
+@export var orangeBoxPuzzle: String
 @export var solved: bool = false
+@export var puzzleID: int = 1
 
 func onInteract():
 	_interactionStart(func(): orangeBox())
 
 func orangeBox():
-	await SceneSwitcher.switchScene(orangeBoxPuzzle.resource_path)
+	await SceneSwitcher.switchScene(orangeBoxPuzzle)
 	_interactionFinished()
+	_solve()
 
 func _on_area_3d_body_entered(_body):
 	canInteract = false
@@ -16,3 +18,7 @@ func _on_area_3d_body_entered(_body):
 
 func _on_area_3d_body_exited(_body):
 	_leftInteractArea()
+
+func _solve():
+	Puzzles._puzzleSolved(puzzleID)
+	solved = true

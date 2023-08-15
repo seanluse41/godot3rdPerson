@@ -1,6 +1,6 @@
 extends Interactable
 
-@export var houseInnerScene: PackedScene
+@export var houseInnerScene: String
 @export var nextTrack: AudioStream
 
 func onInteract():
@@ -8,7 +8,7 @@ func onInteract():
 func house1Door():
 	print(self, "interacted")
 	GlobalAudio._playAudio(nextTrack)
-	await SceneSwitcher.switchScene(houseInnerScene.resource_path)
+	await SceneSwitcher.switchScene(houseInnerScene)
 	_interactionFinished()
 
 func _on_area_3d_body_entered(_body):

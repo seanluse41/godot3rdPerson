@@ -23,3 +23,5 @@ signal textSkip
 signal textFinished
 
 signal textClose
+
+signal puzzleUpdated
