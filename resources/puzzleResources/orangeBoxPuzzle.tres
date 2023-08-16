@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_ymxap")
-id = 0
-name = ""
+id = 1
+name = "orangeBoxPuzzle"
 solved = false
-type = ""
-path = ""
+type = "physical"
+path = "res://scenes/levels/puzzles/orangeBox/orangeBoxPuzzle.tscn"

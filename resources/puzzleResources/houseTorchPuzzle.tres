@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_j0yaa")
-id = 0
-name = ""
+id = 2
+name = "HouseTorchPuzzle"
 solved = false
-type = ""
-path = ""
+type = "visual"
+path = "res://scenes/levels/puzzles/houseTorchPuzzle/houseTorchPuzzle.tscn"

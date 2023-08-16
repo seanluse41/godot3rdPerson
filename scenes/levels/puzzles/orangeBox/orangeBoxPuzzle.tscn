@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://2wtuhatih1jq"]
+[gd_scene load_steps=12 format=3 uid="uid://2wtuhatih1jq"]
 
 [ext_resource type="Texture2D" uid="uid://bdc3o1tgb7wh7" path="res://imports/kenny/Green/texture_07.png" id="1_jup20"]
 [ext_resource type="MeshLibrary" uid="uid://fqjfj44kny53" path="res://scenes/levels/puzzles/orangeBox/orangeBox2.tres" id="2_jehri"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="2_q3u5h"]
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="3_unen7"]
+[ext_resource type="Resource" uid="uid://ovtg423qornm" path="res://resources/puzzleResources/orangeBoxPuzzle.tres" id="4_ur127"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr0t6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -102,7 +103,7 @@ data = {
 
 [node name="orangeBox" parent="BoxPuzzle" instance=ExtResource("3_unen7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48325, 0.599432, 6.44692)
-orangeBoxPuzzle = "res://scenes/levels/main.tscn"
+orangeBoxPuzzle = ExtResource("4_ur127")
 
 [node name="player" parent="." instance=ExtResource("2_q3u5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 9)
