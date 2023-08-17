@@ -1,12 +1,23 @@
 extends Interactable
+@onready var collision_shape_3d = $StaticBody3D/CollisionShape3D
 
 @export var puzzleResource: Resource
-
+@export var testText: String
 func _ready():
 	puzzleResource._loadData()
+	if puzzleResource.solved:
+		collision_shape_3d.disabled = false
+	else:
+		collision_shape_3d.disabled = true
 
 func onInteract():
-	_interactionStart(func(): orangeBox())
+	if puzzleResource.solved:
+		Signals.textStarted.emit(testText)
+		await Signals.textFinished
+		_interactionFinished()
+
+	else:
+		_interactionStart(func(): orangeBox())
 
 func orangeBox():
 	if get_tree().current_scene.scene_file_path == puzzleResource.path:
