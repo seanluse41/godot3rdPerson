@@ -3,6 +3,9 @@ extends Node
 
 var canInteract := false
 
+func _initPuzzleData(id):
+	return Gamedata.getPuzzleData(id)
+
 func _interactionStart(interaction: Callable):
 	interaction.call()
 

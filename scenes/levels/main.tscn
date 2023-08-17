@@ -83,7 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="house1" parent="." instance=ExtResource("3_atq33")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.565316, 10)
-houseInnerScene = "res://scenes/levels/puzzles/houseTorchPuzzle/houseTorchPuzzle.tscn"
+houseInnerScene = "res://scenes/levels/inHouse1.tscn"
 nextTrack = ExtResource("9_xfm07")
 
 [node name="orangeBox" parent="." instance=ExtResource("10_2uvkx")]

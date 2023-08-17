@@ -24,4 +24,6 @@ signal textFinished
 
 signal textClose
 
-signal puzzleUpdated
+signal puzzleSaved
+
+signal puzzleLoaded
