@@ -12,7 +12,7 @@ class_name Puzzle
 var saveFilePath = "user://save/"
 var saveFileName = "save.tres"
 
-var test
+var puzzleSavedData
 
 func _puzzleSolved(puzzleResource):
 	puzzleResource.solved = true
@@ -29,8 +29,6 @@ func _saveData(puzzleResource):
 	Signals.puzzleSaved.emit()
 
 func _loadData():
-	print(self)
-	test = ResourceLoader.load(saveFilePath + saveFileName)
-	print("test var")
-	print(test)
-	return test
+	puzzleSavedData = ResourceLoader.load(saveFilePath + saveFileName)
+	Signals.puzzleLoaded.emit()
+	return puzzleSavedData

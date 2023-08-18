@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3f4t0p0xes1k"]
+
+[ext_resource type="PackedScene" uid="uid://dhvd6stvkc4qi" path="res://imports/Cloud_3.gltf" id="1_bccea"]
+
+[node name="Cloud_3" instance=ExtResource("1_bccea")]

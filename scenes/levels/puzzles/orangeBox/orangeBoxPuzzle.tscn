@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://2wtuhatih1jq"]
+[gd_scene load_steps=11 format=3 uid="uid://2wtuhatih1jq"]
 
 [ext_resource type="Texture2D" uid="uid://bdc3o1tgb7wh7" path="res://imports/kenny/Green/texture_07.png" id="1_jup20"]
 [ext_resource type="MeshLibrary" uid="uid://fqjfj44kny53" path="res://scenes/levels/puzzles/orangeBox/orangeBox2.tres" id="2_jehri"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="2_q3u5h"]
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="3_unen7"]
-[ext_resource type="Resource" uid="uid://ovtg423qornm" path="res://resources/puzzleResources/orangeBoxPuzzle.tres" id="4_ur127"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dr0t6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,10 +19,10 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l0mtj"]
-size = Vector3(20, 0.3, 20)
+size = Vector3(50, 0.3, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mlnr8"]
-size = Vector3(20, 0.2, 20)
+size = Vector3(50, 0.2, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxfap"]
 albedo_texture = ExtResource("1_jup20")
@@ -36,7 +35,8 @@ environment = SubResource("Environment_2xioo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.942641, 0.174414, -0.284617, 0, 0.85264, 0.522499, 0.333807, 0.492529, -0.803734, 0, 0, 0)
-light_color = Color(1, 0.65098, 0.282353, 1)
+light_color = Color(0.905882, 0.537255, 0, 1)
+light_volumetric_fog_energy = 1.369
 shadow_enabled = true
 
 [node name="floor" type="StaticBody3D" parent="."]
@@ -55,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.620097, 0)
 
 [node name="GridMap" type="GridMap" parent="BoxPuzzle/layer1"]
 mesh_library = ExtResource("2_jehri")
-cell_size = Vector3(1, 1, 1)
+cell_size = Vector3(2, 1, 2)
 collision_layer = 3
 collision_mask = 4
 data = {
@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="GridMap2" type="GridMap" parent="BoxPuzzle/layer2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.620097, 0)
 mesh_library = ExtResource("2_jehri")
-cell_size = Vector3(1, 1, 1)
+cell_size = Vector3(2, 1, 2)
 collision_layer = 3
 collision_mask = 4
 data = {
@@ -81,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="GridMap3" type="GridMap" parent="BoxPuzzle/layer3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6201, 0)
 mesh_library = ExtResource("2_jehri")
-cell_size = Vector3(1, 1, 1)
+cell_size = Vector3(2, 1, 2)
 collision_layer = 3
 collision_mask = 4
 data = {
@@ -94,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="GridMap4" type="GridMap" parent="BoxPuzzle/layer4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6201, 0)
 mesh_library = ExtResource("2_jehri")
-cell_size = Vector3(1, 1, 1)
+cell_size = Vector3(2, 1, 2)
 collision_layer = 3
 collision_mask = 4
 data = {
@@ -102,8 +102,7 @@ data = {
 }
 
 [node name="orangeBox" parent="BoxPuzzle" instance=ExtResource("3_unen7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48325, 0.599432, 6.44692)
-orangeBoxPuzzle = ExtResource("4_ur127")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4832, 0.599432, 10.4469)
 
 [node name="player" parent="." instance=ExtResource("2_q3u5h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 20)

@@ -3,19 +3,23 @@ extends Interactable
 
 @export var puzzleResource: Resource
 @export var testText: String
+
 func _ready():
-	puzzleResource._loadData()
-	if puzzleResource.solved:
-		collision_shape_3d.disabled = false
+	var loadedResource = await puzzleResource._loadData()
+	if loadedResource == null:
+		pass
 	else:
-		collision_shape_3d.disabled = true
+		puzzleResource = loadedResource
+		if puzzleResource.solved:
+			collision_shape_3d.disabled = false
+		else:
+			collision_shape_3d.disabled = true
 
 func onInteract():
-	if puzzleResource.solved:
+	if puzzleResource.solved and not get_tree().current_scene.scene_file_path == puzzleResource.path:
 		Signals.textStarted.emit(testText)
 		await Signals.textFinished
 		_interactionFinished()
-
 	else:
 		_interactionStart(func(): orangeBox())
 

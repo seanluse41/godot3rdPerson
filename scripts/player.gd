@@ -10,7 +10,7 @@ var SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
 var walkingSpeed = 3.0
-var runningSpeed = 5.0
+@export var runningSpeed = 8.0
 var twistInput := 0.0
 var pitchInput := 0.0
 var isRunning = false

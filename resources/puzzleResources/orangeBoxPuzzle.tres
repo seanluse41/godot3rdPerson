@@ -6,7 +6,7 @@
 script = ExtResource("1_ymxap")
 id = 1
 name = "orangeBoxPuzzle"
-solved = true
+solved = false
 type = "physical"
 path = "res://scenes/levels/puzzles/orangeBox/orangeBoxPuzzle.tscn"
 returnPath = "res://scenes/levels/main.tscn"
