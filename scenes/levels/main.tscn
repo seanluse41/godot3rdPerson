@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnc40sia33418"]
+[gd_scene load_steps=21 format=3 uid="uid://dnc40sia33418"]
 
+[ext_resource type="Shader" path="res://scripts/daynight.gdshader" id="1_74tto"]
 [ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="1_rq34t"]
 [ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="3_atq33"]
 [ext_resource type="PackedScene" uid="uid://1wfaiittq213" path="res://scenes/scenery/purple_box.tscn" id="4_3drgp"]
@@ -15,20 +16,26 @@
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="10_2uvkx"]
 [ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="10_gwe8w"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4qjoa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2wkd"]
+shader = ExtResource("1_74tto")
+shader_parameter/topSkyDay = Color(0.796078, 0.941176, 0.992157, 1)
+shader_parameter/horizonSkyDay = Color(0.482353, 0.65098, 1, 1)
+shader_parameter/topSkyNight = Color(0.211765, 0.341176, 0.980392, 1)
+shader_parameter/horizonSkyNight = Color(0.133333, 0.121569, 1, 1)
+shader_parameter/topSunRiseSet = Color(1, 0.52549, 0.458824, 1)
+shader_parameter/horizonSunRiseSet = Color(0.619608, 0.235294, 0, 1)
+shader_parameter/sunColor = Color(0.898039, 0.92549, 0.0470588, 1)
+shader_parameter/sunSize = 0.2
+shader_parameter/moonColor = Color(0.858824, 0.858824, 0.301961, 1)
+shader_parameter/moonSize = 0.1
+shader_parameter/moonOffset = 0.05
 
-[sub_resource type="Sky" id="Sky_l568s"]
-sky_material = SubResource("ProceduralSkyMaterial_4qjoa")
+[sub_resource type="Sky" id="Sky_w4ilk"]
+sky_material = SubResource("ShaderMaterial_y2wkd")
 
-[sub_resource type="Environment" id="Environment_t4gp1"]
+[sub_resource type="Environment" id="Environment_8wsof"]
 background_mode = 2
-sky = SubResource("Sky_l568s")
-tonemap_mode = 2
-sdfgi_enabled = true
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(1, 1, 1, 1)
-fog_density = 0.001
+sky = SubResource("Sky_w4ilk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47a4k"]
 albedo_texture = ExtResource("1_rq34t")
@@ -42,12 +49,11 @@ shader_parameter/wave_height = 0.2
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, -0.855364, -0.518027, 0, 0.518027, -0.855364, 0, 0, 0)
 directional_shadow_max_distance = 200.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_t4gp1")
+environment = SubResource("Environment_8wsof")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -68,7 +74,7 @@ collision_layer = 18
 collision_mask = 5
 
 [node name="Grass" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.467826, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05497, 0)
 
 [node name="Root" parent="Map/Grass" instance=ExtResource("5_hbx6t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2382, 0.0149341, 16.6433)
@@ -121,7 +127,12 @@ transform = Transform3D(0.896332, 0, 0.443384, 0, 1, 0, -0.443384, 0, 0.896332, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 20, 0)
 
 [node name="CloudSpawner" parent="Map/clouds" instance=ExtResource("10_gwe8w")]
-transform = Transform3D(20, 0, 0, 0, 2, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="CloudSpawner2" parent="Map/clouds" instance=ExtResource("10_gwe8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -35)
+
+[node name="CloudSpawner3" parent="Map/clouds" instance=ExtResource("10_gwe8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, -12)
 
 [node name="player" parent="." instance=ExtResource("7_kgfcu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, 0)
