@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://015xvhsdw0nd"]
+
+[ext_resource type="Texture2D" uid="uid://cxd4v80uj6qwb" path="res://imports/FX_CloudAlpha02.png" id="1_n7jt4"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gr3xa"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 2, 3)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddc5"]
+transparency = 2
+alpha_scissor_threshold = 0.127
+alpha_antialiasing_mode = 0
+blend_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_n7jt4")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_51vnx"]
+material = SubResource("StandardMaterial3D_sddc5")
+size = Vector2(5, 5)
+
+[node name="clouds" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 50
+lifetime = 60.0
+explosiveness = 0.98
+process_material = SubResource("ParticleProcessMaterial_gr3xa")
+draw_pass_1 = SubResource("QuadMesh_51vnx")
