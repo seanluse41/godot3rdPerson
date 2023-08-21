@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b873tucc6don1"]
+
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_5.tscn" id="1_hr6te"]
+
+[node name="Build_5" instance=ExtResource("1_hr6te")]

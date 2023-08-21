@@ -56,6 +56,7 @@ mesh = SubResource("PlaneMesh_6qnmv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26222, 0)
 material_override = ExtResource("1_mon8u")
 cast_shadow = 0
+gi_lightmap_scale = 1
 multimesh = SubResource("MultiMesh_xj0r8")
 
 [node name="grass" type="Node3D" parent="."]

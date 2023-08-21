@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://dnc40sia33418"]
+[gd_scene load_steps=29 format=3 uid="uid://dnc40sia33418"]
 
+[ext_resource type="Script" path="res://scripts/dayNightCycleDirectionalLight3d.gd" id="1_1wpnv"]
 [ext_resource type="Shader" path="res://scripts/daynight.gdshader" id="1_74tto"]
 [ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="1_rq34t"]
 [ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="3_atq33"]
 [ext_resource type="PackedScene" uid="uid://1wfaiittq213" path="res://scenes/scenery/purple_box.tscn" id="4_3drgp"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="4_cwyol"]
 [ext_resource type="Shader" path="res://scripts/purple_box.gdshader" id="4_hpcc7"]
 [ext_resource type="PackedScene" uid="uid://vwy15b4ydj0i" path="res://scenes/scenery/Stylized3DGrass.tscn" id="5_hbx6t"]
 [ext_resource type="PackedScene" uid="uid://0eo27yglj2qi" path="res://scenes/scenery/green_box.tscn" id="6_rgggi"]
@@ -15,19 +17,25 @@
 [ext_resource type="PackedScene" uid="uid://mgnp2bjr2inb" path="res://scenes/scenery/rock_2.tscn" id="9_yxapv"]
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="10_2uvkx"]
 [ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="10_gwe8w"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_6.tscn" id="13_3ttjv"]
+[ext_resource type="PackedScene" uid="uid://b873tucc6don1" path="res://scenes/scenery/housePorch.tscn" id="17_a3ryq"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_7.tscn" id="19_0mm1m"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_8.tscn" id="20_udwpt"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_9.tscn" id="21_yqwii"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_10.tscn" id="22_txjvr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2wkd"]
 shader = ExtResource("1_74tto")
 shader_parameter/topSkyDay = Color(0.796078, 0.941176, 0.992157, 1)
 shader_parameter/horizonSkyDay = Color(0.482353, 0.65098, 1, 1)
 shader_parameter/topSkyNight = Color(0.211765, 0.341176, 0.980392, 1)
-shader_parameter/horizonSkyNight = Color(0.133333, 0.121569, 1, 1)
+shader_parameter/horizonSkyNight = Color(0.365182, 0.523149, 1, 1)
 shader_parameter/topSunRiseSet = Color(1, 0.52549, 0.458824, 1)
 shader_parameter/horizonSunRiseSet = Color(0.619608, 0.235294, 0, 1)
 shader_parameter/sunColor = Color(0.898039, 0.92549, 0.0470588, 1)
 shader_parameter/sunSize = 0.2
 shader_parameter/moonColor = Color(0.858824, 0.858824, 0.301961, 1)
-shader_parameter/moonSize = 0.1
+shader_parameter/moonSize = 0.3
 shader_parameter/moonOffset = 0.05
 
 [sub_resource type="Sky" id="Sky_w4ilk"]
@@ -49,8 +57,10 @@ shader_parameter/wave_height = 0.2
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.855364, -0.518027, 0, 0.518027, -0.855364, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.756995, -0.65342, 0, 0.65342, -0.756995, 0, 0, 0)
 directional_shadow_max_distance = 200.0
+script = ExtResource("1_1wpnv")
+rotationSpeed = 0.05
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8wsof")
@@ -74,7 +84,8 @@ collision_layer = 18
 collision_mask = 5
 
 [node name="Grass" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05497, 0)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 
 [node name="Root" parent="Map/Grass" instance=ExtResource("5_hbx6t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2382, 0.0149341, 16.6433)
@@ -145,3 +156,24 @@ nextTrack = ExtResource("9_xfm07")
 [node name="orangeBox" parent="." instance=ExtResource("10_2uvkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.23412, 0)
 testText = "Good job solving that puzzle dude."
+
+[node name="Build_5" parent="." instance=ExtResource("17_a3ryq")]
+transform = Transform3D(-0.860337, 0, 0.836553, 0, 1.2, 0, -0.836553, 0, -0.860337, 20.9268, 0.491167, 8)
+
+[node name="Build_7" parent="." instance=ExtResource("19_0mm1m")]
+transform = Transform3D(0.968566, 0, -0.248758, 0, 1, 0, 0.248758, 0, 0.968566, -19.5891, 0.500434, 23.6928)
+
+[node name="Build_10" parent="." instance=ExtResource("22_txjvr")]
+transform = Transform3D(-0.0287416, 0, -0.999587, 0, 1, 0, 0.999587, 0, -0.0287416, 8.06171, 0.564087, -25.2622)
+
+[node name="Build_6" parent="." instance=ExtResource("13_3ttjv")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 7.92684, 0.491167, 26)
+
+[node name="Build_8" parent="." instance=ExtResource("20_udwpt")]
+transform = Transform3D(-0.236668, 0, 0.97159, 0, 1, 0, -0.97159, 0, -0.236668, -25.8343, 0.571006, -2.04194)
+
+[node name="Build_9" parent="." instance=ExtResource("21_yqwii")]
+transform = Transform3D(0.551922, 0, -0.833896, 0, 1, 0, 0.833896, 0, 0.551922, -16.6481, 0.525175, -25.2622)
+
+[node name="Build_2" parent="." instance=ExtResource("4_cwyol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.499005, -8)
