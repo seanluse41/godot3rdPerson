@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://1wfaiittq213"]
 
-[ext_resource type="Shader" path="res://scripts/purple_box.gdshader" id="1_cmv5f"]
+[ext_resource type="Shader" path="res://scripts/shaders/purple_box.gdshader" id="1_cmv5f"]
 [ext_resource type="Script" path="res://scripts/purpleBox.gd" id="2_o8tms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7aunw"]

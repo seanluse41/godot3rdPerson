@@ -1,15 +1,14 @@
 [gd_scene load_steps=29 format=3 uid="uid://dnc40sia33418"]
 
 [ext_resource type="Script" path="res://scripts/dayNightCycleDirectionalLight3d.gd" id="1_1wpnv"]
-[ext_resource type="Shader" path="res://scripts/daynight.gdshader" id="1_74tto"]
 [ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="1_rq34t"]
+[ext_resource type="Shader" path="res://scripts/shaders/daynight.gdshader" id="2_wvurj"]
 [ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="3_atq33"]
 [ext_resource type="PackedScene" uid="uid://1wfaiittq213" path="res://scenes/scenery/purple_box.tscn" id="4_3drgp"]
 [ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="4_cwyol"]
-[ext_resource type="Shader" path="res://scripts/purple_box.gdshader" id="4_hpcc7"]
+[ext_resource type="Shader" path="res://scripts/shaders/purple_box.gdshader" id="5_an836"]
 [ext_resource type="PackedScene" uid="uid://vwy15b4ydj0i" path="res://scenes/scenery/Stylized3DGrass.tscn" id="5_hbx6t"]
 [ext_resource type="PackedScene" uid="uid://0eo27yglj2qi" path="res://scenes/scenery/green_box.tscn" id="6_rgggi"]
-[ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="7_kgfcu"]
 [ext_resource type="PackedScene" uid="uid://dttb5y7ja0v12" path="res://scenes/scenery/rock_platforms_1.tscn" id="7_tucgo"]
 [ext_resource type="PackedScene" uid="uid://mkwbao4ljvf8" path="res://scenes/scenery/rock_1.tscn" id="8_on4sl"]
 [ext_resource type="PackedScene" uid="uid://dcn8dp7v2ay0l" path="res://scenes/scenery/rock_platforms_2.tscn" id="9_l7fbj"]
@@ -23,9 +22,10 @@
 [ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_8.tscn" id="20_udwpt"]
 [ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_9.tscn" id="21_yqwii"]
 [ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_10.tscn" id="22_txjvr"]
+[ext_resource type="PackedScene" uid="uid://cav2bksex50b6" path="res://scenes/characters/3d_godot_robot.tscn" id="23_xkx6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2wkd"]
-shader = ExtResource("1_74tto")
+shader = ExtResource("2_wvurj")
 shader_parameter/topSkyDay = Color(0.796078, 0.941176, 0.992157, 1)
 shader_parameter/horizonSkyDay = Color(0.482353, 0.65098, 1, 1)
 shader_parameter/topSkyNight = Color(0.211765, 0.341176, 0.980392, 1)
@@ -51,7 +51,7 @@ uv1_triplanar = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngh3n"]
 render_priority = 0
-shader = ExtResource("4_hpcc7")
+shader = ExtResource("5_an836")
 shader_parameter/wave_height = 0.2
 
 [node name="World" type="Node3D"]
@@ -145,9 +145,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -35)
 [node name="CloudSpawner3" parent="Map/clouds" instance=ExtResource("10_gwe8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, -12)
 
-[node name="player" parent="." instance=ExtResource("7_kgfcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, 0)
-
 [node name="house1" parent="." instance=ExtResource("3_atq33")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.565316, 10)
 houseInnerScene = "res://scenes/levels/inHouse1.tscn"
@@ -177,3 +174,6 @@ transform = Transform3D(0.551922, 0, -0.833896, 0, 1, 0, 0.833896, 0, 0.551922, 
 
 [node name="Build_2" parent="." instance=ExtResource("4_cwyol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.499005, -8)
+
+[node name="3DGodotRobot" parent="." instance=ExtResource("23_xkx6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.647818, 0)

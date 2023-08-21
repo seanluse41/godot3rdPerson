@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://vwy15b4ydj0i"]
 
-[ext_resource type="Material" uid="uid://egpru16uvbme" path="res://scripts/Stylized3DGrass.tres" id="1_mon8u"]
+[ext_resource type="Material" uid="uid://egpru16uvbme" path="res://scripts/shaders/Stylized3DGrass.tres" id="1_mon8u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1mqg"]
 diffuse_mode = 3

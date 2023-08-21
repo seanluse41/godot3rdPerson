@@ -1,16 +1,17 @@
 extends CharacterBody3D
 
 @onready var visuals = $visuals
-@onready var animation_player = %AnimationPlayer
 @onready var interact_box = $interactBox
 @onready var camera_mount = $CameraMount
 @onready var interact_timer = $interactBox/interactTimer
+@onready var animation_player = %AnimationPlayer
+
 
 var SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
-var walkingSpeed = 3.0
-@export var runningSpeed = 8.0
+var walkingSpeed = 4.0
+@export var runningSpeed = 10.0
 var twistInput := 0.0
 var pitchInput := 0.0
 var isRunning = false
@@ -39,20 +40,34 @@ func _input(event):
 		$CameraMount.rotate_x(pitchInput)
 		$CameraMount.rotation.x = clamp($CameraMount.rotation.x, -0.5, 0.5)
 
+func _handleSearch():
+	if is_on_floor():
+		if not isLocked:
+			print("Searching...")
+			animation_player.play("T-pose")
+			isLocked = true
+			_unlockCharacter()
+
+func _handleInteract():
+	if TextBox.visible:
+		Signals.textSkip.emit()
+	else:
+		interact()
+
+func _handleRun():
+	SPEED = runningSpeed
+	isRunning = true
+
+func _handleJump():
+	velocity.y = JUMP_VELOCITY
+
 func _physics_process(delta):
-	if Input.is_action_just_pressed("kick"):
-		if is_on_floor():
-			if not isLocked:
-				animation_player.play("kick")
-				isLocked = true
+	if Input.is_action_just_pressed("search"):
+		_handleSearch()
 	if Input.is_action_just_pressed("interact"):
-		if TextBox.visible:
-			Signals.textSkip.emit()
-		else:
-			interact()
+		_handleInteract()
 	if Input.is_action_pressed("run"):
-		SPEED = runningSpeed
-		isRunning = true
+		_handleRun()
 	else:
 		SPEED = walkingSpeed
 		isRunning = false
@@ -65,7 +80,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not isLocked:
-		velocity.y = JUMP_VELOCITY
+		_handleJump()
 
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -73,12 +88,11 @@ func _physics_process(delta):
 		if !isLocked:
 			if isRunning:
 				if animation_player.current_animation != "running":
-					animation_player.play("running")
+					animation_player.play("walking")
 			else:
 				if animation_player.current_animation != "walking":
-					animation_player.play("walking")
+					animation_player.play("running")
 			visuals.look_at(position + direction)
-			
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:

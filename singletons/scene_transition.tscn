@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2eb2ef70lqx6"]
 
 [ext_resource type="Script" path="res://singletons/sceneTransition.gd" id="1_vpnlq"]
-[ext_resource type="Shader" path="res://scripts/glitch_transition.gdshader" id="2_d68b4"]
+[ext_resource type="Shader" path="res://scripts/shaders/glitch_transition.gdshader" id="2_d68b4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cge2x"]
 shader = ExtResource("2_d68b4")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh00g0kocfrid"]
+
+[ext_resource type="PackedScene" uid="uid://coksgri4vkefx" path="res://imports/Character.gltf" id="1_f1d0v"]
+
+[node name="BlueVillagerTest" instance=ExtResource("1_f1d0v")]
+
+[node name="Skeleton3D" parent="CharacterArmature" index="0"]
+bones/2/position = Vector3(0.00215299, 0.597673, 0.15489)
+bones/4/rotation = Quaternion(0.160321, 4.4083e-07, 6.42963e-09, 0.987065)
+bones/7/rotation = Quaternion(-0.0790494, -0.000274613, 2.17171e-05, 0.996871)
+bones/9/rotation = Quaternion(-0.172039, -0.0045816, -0.0159904, 0.98495)
+bones/10/rotation = Quaternion(-0.458535, -0.099887, 0.191319, 0.86207)
+bones/12/rotation = Quaternion(-0.172494, 0.00478372, 0.0159543, 0.98487)
+bones/13/rotation = Quaternion(-0.459492, 0.1001, -0.191208, 0.86156)
+bones/14/position = Vector3(0.13353, 0.141117, 0.0145012)
+bones/14/rotation = Quaternion(-0.0390323, 0.0208697, -0.410371, 0.910844)
+bones/16/rotation = Quaternion(-0.019739, 0.259404, -0.240392, 0.935164)
+bones/18/position = Vector3(-0.132253, 0.141117, 0.0145013)
+bones/18/rotation = Quaternion(-0.0390321, -0.0208691, 0.410372, 0.910844)
+bones/20/rotation = Quaternion(-0.019739, -0.259404, 0.240392, 0.935164)
+bones/22/rotation = Quaternion(0.915049, 0.0141691, 0.00694093, 0.403034)
+bones/23/rotation = Quaternion(0.677554, 0.0110732, 0.0153505, 0.73523)
+bones/24/rotation = Quaternion(0.915049, -0.0141691, -0.00694017, 0.403034)
+bones/25/rotation = Quaternion(0.677554, -0.0110731, -0.0153503, 0.73523)
+bones/27/rotation = Quaternion(-7.85402e-06, 0.702952, 0.711237, -7.76252e-06)
