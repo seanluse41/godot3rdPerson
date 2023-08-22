@@ -1,14 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://cav2bksex50b6"]
+[gd_scene load_steps=33 format=3 uid="uid://cav2bksex50b6"]
 
 [ext_resource type="Texture2D" uid="uid://v27rjvmfa1rq" path="res://imports/3DGodotRobot_GodotPalette.png" id="1_bbk0c"]
 [ext_resource type="Script" path="res://scripts/robotPlayer.gd" id="1_egu03"]
 [ext_resource type="PackedScene" uid="uid://drculkbctmmos" path="res://scenes/utilities/interactBox.tscn" id="2_2emyk"]
-[ext_resource type="Script" path="res://scripts/states/FiniteStateMachine.gd" id="4_prc56"]
-[ext_resource type="Script" path="res://scripts/states/player/playerIdle.gd" id="5_wjkg6"]
-[ext_resource type="Script" path="res://scripts/states/player/playerWalk.gd" id="6_16fx1"]
-[ext_resource type="Script" path="res://scripts/states/player/playerKick.gd" id="7_606u7"]
-[ext_resource type="Script" path="res://scripts/states/player/playerJump.gd" id="8_oa20e"]
-[ext_resource type="Script" path="res://scripts/states/player/playerRun.gd" id="9_yjltm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb8ra"]
 resource_name = "Material"
@@ -4504,10 +4498,11 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_derll"]
 size = Vector3(1.09591, 1.61634, 0.906583)
 
-[node name="3DGodotRobot" type="CharacterBody3D" node_paths=PackedStringArray("currentState")]
+[node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 27
 script = ExtResource("1_egu03")
-currentState = NodePath("FiniteStateMachine/playerIdle")
 
 [node name="visuals" type="Node3D" parent="."]
 transform = Transform3D(-0.578472, 0, -5.05716e-08, 0, 0.578472, 0, 5.05716e-08, 0, -0.578472, 0, 0, 0)
@@ -4716,33 +4711,14 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0279877, 0.840404, 0.0484296)
 shape = SubResource("BoxShape3D_derll")
 
-[node name="CameraMount" type="SpringArm3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.62268e-07, 3, -3)
-spring_length = 2.0
-
-[node name="Camera3D" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(1, 0, 0, 0, 0.944376, 0.328867, 0, -0.328867, 0.944376, 0, 1, 2)
-
 [node name="interactBox" parent="." instance=ExtResource("2_2emyk")]
 visible = false
 
 [node name="interactTimer" type="Timer" parent="interactBox"]
 
-[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
-script = ExtResource("4_prc56")
-currentState = NodePath("playerIdle")
+[node name="CameraMount" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 1)
+spring_length = 2.4
 
-[node name="playerIdle" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("5_wjkg6")
-
-[node name="playerWalk" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("6_16fx1")
-
-[node name="playerKick" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("7_606u7")
-
-[node name="playerJump" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("8_oa20e")
-
-[node name="playerRun" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("9_yjltm")
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.1, 2.4)

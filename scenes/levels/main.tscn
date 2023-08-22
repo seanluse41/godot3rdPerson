@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dnc40sia33418"]
+[gd_scene load_steps=23 format=3 uid="uid://dnc40sia33418"]
 
 [ext_resource type="Script" path="res://scripts/dayNightCycleDirectionalLight3d.gd" id="1_1wpnv"]
 [ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="1_rq34t"]
@@ -16,12 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://mgnp2bjr2inb" path="res://scenes/scenery/rock_2.tscn" id="9_yxapv"]
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="10_2uvkx"]
 [ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="10_gwe8w"]
-[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_6.tscn" id="13_3ttjv"]
-[ext_resource type="PackedScene" uid="uid://b873tucc6don1" path="res://scenes/scenery/housePorch.tscn" id="17_a3ryq"]
-[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_7.tscn" id="19_0mm1m"]
-[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_8.tscn" id="20_udwpt"]
-[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_9.tscn" id="21_yqwii"]
-[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_10.tscn" id="22_txjvr"]
 [ext_resource type="PackedScene" uid="uid://cav2bksex50b6" path="res://scenes/characters/3d_godot_robot.tscn" id="23_xkx6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2wkd"]
@@ -85,7 +79,6 @@ collision_mask = 5
 
 [node name="Grass" type="Node3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 
 [node name="Root" parent="Map/Grass" instance=ExtResource("5_hbx6t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2382, 0.0149341, 16.6433)
@@ -154,26 +147,7 @@ nextTrack = ExtResource("9_xfm07")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.23412, 0)
 testText = "Good job solving that puzzle dude."
 
-[node name="Build_5" parent="." instance=ExtResource("17_a3ryq")]
-transform = Transform3D(-0.860337, 0, 0.836553, 0, 1.2, 0, -0.836553, 0, -0.860337, 20.9268, 0.491167, 8)
-
-[node name="Build_7" parent="." instance=ExtResource("19_0mm1m")]
-transform = Transform3D(0.968566, 0, -0.248758, 0, 1, 0, 0.248758, 0, 0.968566, -19.5891, 0.500434, 23.6928)
-
-[node name="Build_10" parent="." instance=ExtResource("22_txjvr")]
-transform = Transform3D(-0.0287416, 0, -0.999587, 0, 1, 0, 0.999587, 0, -0.0287416, 8.06171, 0.564087, -25.2622)
-
-[node name="Build_6" parent="." instance=ExtResource("13_3ttjv")]
-transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 7.92684, 0.491167, 26)
-
-[node name="Build_8" parent="." instance=ExtResource("20_udwpt")]
-transform = Transform3D(-0.236668, 0, 0.97159, 0, 1, 0, -0.97159, 0, -0.236668, -25.8343, 0.571006, -2.04194)
-
-[node name="Build_9" parent="." instance=ExtResource("21_yqwii")]
-transform = Transform3D(0.551922, 0, -0.833896, 0, 1, 0, 0.833896, 0, 0.551922, -16.6481, 0.525175, -25.2622)
-
 [node name="Build_2" parent="." instance=ExtResource("4_cwyol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.499005, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.513264, -9)
 
-[node name="3DGodotRobot" parent="." instance=ExtResource("23_xkx6m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.647818, 0)
+[node name="Player" parent="." instance=ExtResource("23_xkx6m")]
