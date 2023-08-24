@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds2nk77mup78e"]
 
-[ext_resource type="AudioStream" uid="uid://dxv8mjqtamlu0" path="res://imports/whimsypiano.mp3" id="1_yjkw8"]
+[ext_resource type="AudioStream" uid="uid://dxv8mjqtamlu0" path="res://imports/sounds/whimsypiano.mp3" id="1_yjkw8"]
 [ext_resource type="Script" path="res://singletons/globalAudio.gd" id="2_ko3iq"]
 
 [node name="GlobalAudio" type="AudioStreamPlayer"]

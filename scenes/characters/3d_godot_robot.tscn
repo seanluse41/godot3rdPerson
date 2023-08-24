@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://cav2bksex50b6"]
 
-[ext_resource type="Texture2D" uid="uid://v27rjvmfa1rq" path="res://imports/3DGodotRobot_GodotPalette.png" id="1_bbk0c"]
+[ext_resource type="Texture2D" uid="uid://v27rjvmfa1rq" path="res://imports/models/3DGodotRobot_GodotPalette.png" id="1_bbk0c"]
 [ext_resource type="Script" path="res://scripts/robotPlayer.gd" id="1_egu03"]
 [ext_resource type="PackedScene" uid="uid://drculkbctmmos" path="res://scenes/utilities/interactBox.tscn" id="2_2emyk"]
 

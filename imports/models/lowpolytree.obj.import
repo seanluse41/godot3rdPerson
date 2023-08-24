@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bthmem3131wj0"
+path="res://.godot/imported/lowpolytree.obj-2d4911c4d541206e70f922a79c6e8b5e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lowpolytree.obj-2d4911c4d541206e70f922a79c6e8b5e.mesh"]
+
+source_file="res://imports/models/lowpolytree.obj"
+dest_files=["res://.godot/imported/lowpolytree.obj-2d4911c4d541206e70f922a79c6e8b5e.mesh", "res://.godot/imported/lowpolytree.obj-2d4911c4d541206e70f922a79c6e8b5e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

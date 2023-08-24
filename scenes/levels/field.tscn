@@ -1,0 +1,154 @@
+[gd_scene load_steps=23 format=3 uid="uid://dnc40sia33418"]
+
+[ext_resource type="Script" path="res://scripts/dayNightCycleDirectionalLight3d.gd" id="1_dx07b"]
+[ext_resource type="Shader" path="res://scripts/shaders/daynight.gdshader" id="2_si23f"]
+[ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="3_omerl"]
+[ext_resource type="PackedScene" uid="uid://1wfaiittq213" path="res://scenes/scenery/purple_box.tscn" id="4_won5t"]
+[ext_resource type="Shader" path="res://scripts/shaders/purple_box.gdshader" id="5_o1gtv"]
+[ext_resource type="PackedScene" uid="uid://0eo27yglj2qi" path="res://scenes/scenery/green_box.tscn" id="6_1ifqy"]
+[ext_resource type="PackedScene" uid="uid://vwy15b4ydj0i" path="res://scenes/scenery/Stylized3DGrass.tscn" id="7_3hlbh"]
+[ext_resource type="PackedScene" uid="uid://mkwbao4ljvf8" path="res://scenes/scenery/rock_1.tscn" id="8_hfjqe"]
+[ext_resource type="PackedScene" uid="uid://mgnp2bjr2inb" path="res://scenes/scenery/rock_2.tscn" id="9_mbyn8"]
+[ext_resource type="PackedScene" uid="uid://dttb5y7ja0v12" path="res://scenes/scenery/rock_platforms_1.tscn" id="10_7yv11"]
+[ext_resource type="PackedScene" uid="uid://dcn8dp7v2ay0l" path="res://scenes/scenery/rock_platforms_2.tscn" id="11_uy6nm"]
+[ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="12_jlxnx"]
+[ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="13_xmeya"]
+[ext_resource type="AudioStream" uid="uid://d1tmrwajb1h5w" path="res://imports/zelda-in-a-house.mp3" id="14_thccj"]
+[ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="15_vo6mu"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="16_4uls4"]
+[ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="17_ttvs7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2wkd"]
+shader = ExtResource("2_si23f")
+shader_parameter/topSkyDay = Color(0.796078, 0.941176, 0.992157, 1)
+shader_parameter/horizonSkyDay = Color(0.482353, 0.65098, 1, 1)
+shader_parameter/topSkyNight = Color(0.211765, 0.341176, 0.980392, 1)
+shader_parameter/horizonSkyNight = Color(0.365182, 0.523149, 1, 1)
+shader_parameter/topSunRiseSet = Color(1, 0.52549, 0.458824, 1)
+shader_parameter/horizonSunRiseSet = Color(0.619608, 0.235294, 0, 1)
+shader_parameter/sunColor = Color(0.898039, 0.92549, 0.0470588, 1)
+shader_parameter/sunSize = 0.2
+shader_parameter/moonColor = Color(0.858824, 0.858824, 0.301961, 1)
+shader_parameter/moonSize = 0.3
+shader_parameter/moonOffset = 0.05
+
+[sub_resource type="Sky" id="Sky_w4ilk"]
+sky_material = SubResource("ShaderMaterial_y2wkd")
+
+[sub_resource type="Environment" id="Environment_8wsof"]
+background_mode = 2
+sky = SubResource("Sky_w4ilk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47a4k"]
+albedo_texture = ExtResource("3_omerl")
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngh3n"]
+render_priority = 0
+shader = ExtResource("5_o1gtv")
+shader_parameter/wave_height = 0.2
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.756995, -0.65342, 0, 0.65342, -0.756995, 0, 0, 0)
+directional_shadow_max_distance = 200.0
+script = ExtResource("1_dx07b")
+rotationSpeed = 0.05
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8wsof")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="Map"]
+material_override = SubResource("StandardMaterial3D_47a4k")
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="purpleBox" parent="Map" instance=ExtResource("4_won5t")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -3, 1.5, 0)
+collision_layer = 18
+collision_mask = 5
+material = SubResource("ShaderMaterial_ngh3n")
+
+[node name="greenBox" parent="Map" instance=ExtResource("6_1ifqy")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -4, 2, -7)
+collision_layer = 18
+collision_mask = 5
+
+[node name="Grass" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Root" parent="Map/Grass" instance=ExtResource("7_3hlbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2382, 0.0149341, 16.6433)
+
+[node name="Root4" parent="Map/Grass" instance=ExtResource("7_3hlbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0263, 0.0149341, 16.6433)
+
+[node name="Root2" parent="Map/Grass" instance=ExtResource("7_3hlbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9604, 0.0149341, -28.2521)
+
+[node name="Root3" parent="Map/Grass" instance=ExtResource("7_3hlbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3484, 0.0149341, -28.2521)
+
+[node name="Rocks" type="Node3D" parent="Map"]
+
+[node name="Rock_1" parent="Map/Rocks" instance=ExtResource("8_hfjqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6319, 0.432467, 0)
+
+[node name="Rock_2" parent="Map/Rocks" instance=ExtResource("8_hfjqe")]
+transform = Transform3D(0.857877, 0, -0.513856, 0, 1, 0, 0.513856, 0, 0.857877, 36.6319, -0.0815116, 0)
+
+[node name="Rock_5" parent="Map/Rocks" instance=ExtResource("8_hfjqe")]
+transform = Transform3D(0.857877, 0, -0.513856, 0, 1, 0, 0.513856, 0, 0.857877, 38.0077, 1.24757, -0.764099)
+
+[node name="Rock_3" parent="Map/Rocks" instance=ExtResource("9_mbyn8")]
+transform = Transform3D(-0.919156, 0, -0.393894, 0, 1, 0, 0.393894, 0, -0.919156, 38.2977, 0.247572, 1.23588)
+
+[node name="Rock_4" parent="Map/Rocks" instance=ExtResource("9_mbyn8")]
+transform = Transform3D(-0.919156, 0, -0.393894, 0, 1, 0, 0.393894, 0, -0.919156, 38.2977, -0.633641, 3.6041)
+
+[node name="Rock_6" parent="Map/Rocks" instance=ExtResource("9_mbyn8")]
+transform = Transform3D(-0.442524, 0, 0.896757, 0, 1, 0, -0.896757, 0, -0.442524, 38.2977, 0.247572, 2.26776)
+
+[node name="RockPlatforms_1" parent="Map/Rocks" instance=ExtResource("10_7yv11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 0)
+
+[node name="RockPlatforms_3" parent="Map/Rocks" instance=ExtResource("10_7yv11")]
+transform = Transform3D(0.580703, 0, -0.814116, 0, 1, 0, 0.814116, 0, 0.580703, 43.5641, 1.81057, 0)
+
+[node name="RockPlatforms_2" parent="Map/Rocks" instance=ExtResource("11_uy6nm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 0, 5)
+
+[node name="RockPlatforms_4" parent="Map/Rocks" instance=ExtResource("11_uy6nm")]
+transform = Transform3D(0.779075, 0, -0.62693, 0, 1, 0, 0.62693, 0, 0.779075, 46.2409, 1.44938, 5)
+
+[node name="RockPlatforms_5" parent="Map/Rocks" instance=ExtResource("11_uy6nm")]
+transform = Transform3D(0.896332, 0, 0.443384, 0, 1, 0, -0.443384, 0, 0.896332, 46.2409, 2.77744, 1.07317)
+
+[node name="clouds" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 20, 0)
+
+[node name="CloudSpawner" parent="Map/clouds" instance=ExtResource("12_jlxnx")]
+
+[node name="CloudSpawner2" parent="Map/clouds" instance=ExtResource("12_jlxnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -35)
+
+[node name="CloudSpawner3" parent="Map/clouds" instance=ExtResource("12_jlxnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, -12)
+
+[node name="house1" parent="." instance=ExtResource("13_xmeya")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.565316, 10)
+houseInnerScene = "res://scenes/levels/inHouse1.tscn"
+nextTrack = ExtResource("14_thccj")
+
+[node name="orangeBox" parent="." instance=ExtResource("15_vo6mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.23412, 0)
+testText = "Good job solving that puzzle dude."
+
+[node name="Build_2" parent="." instance=ExtResource("16_4uls4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.513264, -9)
+
+[node name="player" parent="." instance=ExtResource("17_ttvs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.686744, 0)

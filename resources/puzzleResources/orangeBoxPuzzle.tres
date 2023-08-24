@@ -9,4 +9,4 @@ name = "orangeBoxPuzzle"
 solved = false
 type = "physical"
 path = "res://scenes/levels/puzzles/orangeBox/orangeBoxPuzzle.tscn"
-returnPath = "res://scenes/levels/main.tscn"
+returnPath = "res://scenes/levels/field.tscn"

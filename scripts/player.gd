@@ -44,7 +44,7 @@ func _handleSearch():
 	if is_on_floor():
 		if not isLocked:
 			print("Searching...")
-			animation_player.play("T-pose")
+			animation_player.play("idle")
 			isLocked = true
 			_unlockCharacter()
 

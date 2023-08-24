@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dh00g0kocfrid"]
 
-[ext_resource type="PackedScene" uid="uid://coksgri4vkefx" path="res://imports/Character.gltf" id="1_f1d0v"]
+[ext_resource type="PackedScene" uid="uid://coksgri4vkefx" path="res://imports/models/Character.gltf" id="1_f1d0v"]
 
 [node name="BlueVillagerTest" instance=ExtResource("1_f1d0v")]
 

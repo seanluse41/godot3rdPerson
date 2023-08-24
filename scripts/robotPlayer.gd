@@ -30,6 +30,7 @@ func _ready():
 	Signals.canInteract.connect(_handleCanInteractBox)
 	Signals.canNotInteract.connect(_handleCanNotInteractBox)
 	Signals.leftInteractArea.connect(_handleLeftInteractArea)
+	Signals.textFinished.connect(_unlockCharacter)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _changeState(newState):
@@ -46,15 +47,18 @@ func _input(event):
 
 func _handleSearch():
 	if is_on_floor():
-		if not isLocked:
-			isLocked = true
+		if currentState != States.LOCKED:
+			_changeState(States.LOCKED)
 			_unlockCharacter()
 
 func _handleInteract():
-	if TextBox.visible:
-		Signals.textSkip.emit()
-	else:
-		interact()
+	if is_on_floor():
+		if currentState != States.LOCKED:
+			_changeState(States.LOCKED)
+			if TextBox.visible:
+				Signals.textSkip.emit()
+			else:
+				interact()
 
 func _handleRun():
 	SPEED = runningSpeed
@@ -63,6 +67,7 @@ func _handleJump():
 	velocity.y = JUMP_VELOCITY
 
 func chooseAnimation():
+	print(States.keys()[currentState])
 	match currentState:
 		States.IDLE:
 			animation_player.play("Idle")
@@ -105,7 +110,7 @@ func _physics_process(delta):
 
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3( -input_dir.x, 0, -input_dir.y)).normalized()
-	if direction:
+	if direction and currentState != States.LOCKED:
 		visuals.look_at(direction)
 		if currentState != States.LOCKED:
 			visuals.look_at(position - direction)
@@ -116,6 +121,10 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	if !isLocked:
 		move_and_slide()
+	if velocity == Vector3.ZERO and direction == Vector3.ZERO:
+		_changeState(States.IDLE)
+	elif velocity != Vector3.ZERO and direction != Vector3.ZERO:
+		_changeState(States.WALK)
 
 func _unlockCharacter():
 	_changeState(States.IDLE)

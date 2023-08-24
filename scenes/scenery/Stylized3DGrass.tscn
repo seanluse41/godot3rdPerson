@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://vwy15b4ydj0i"]
+[gd_scene load_steps=9 format=3 uid="uid://vwy15b4ydj0i"]
 
 [ext_resource type="Material" uid="uid://egpru16uvbme" path="res://scripts/shaders/Stylized3DGrass.tres" id="1_mon8u"]
+[ext_resource type="Texture2D" uid="uid://bkdk4td22bppa" path="res://imports/textures/Grass/Grass_20-256x256.png" id="1_ueye3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1mqg"]
 diffuse_mode = 3
-albedo_color = Color(0.160784, 0.239216, 0.0980392, 1)
+albedo_texture = ExtResource("1_ueye3")
+uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6qnmv"]
 material = SubResource("StandardMaterial3D_m1mqg")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvhihwo2pbwjk"]
+
+[ext_resource type="PackedScene" uid="uid://tgfwojimy3rq" path="res://imports/models/trees/Fir_Tree.glb" id="1_2uyni"]
+[ext_resource type="Texture2D" uid="uid://ctgkmchtr0ik1" path="res://imports/textures/Wood/Wood_02-256x256.png" id="2_xdctu"]
+[ext_resource type="Texture2D" uid="uid://bkdk4td22bppa" path="res://imports/textures/Grass/Grass_20-256x256.png" id="3_4glfr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojvs3"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_xdctu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv0w4"]
+albedo_texture = ExtResource("3_4glfr")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[node name="Fir_Tree" instance=ExtResource("1_2uyni")]
+
+[node name="Fir-tree" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ojvs3")
+surface_material_override/1 = SubResource("StandardMaterial3D_fv0w4")

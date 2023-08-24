@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyi2105inf0i1"]
+
+[ext_resource type="PackedScene" uid="uid://bmm24ty1x1ewx" path="res://imports/models/trees/Oak_Tree.glb" id="1_ivo6h"]
+[ext_resource type="Texture2D" uid="uid://cy2olrpg5yxw6" path="res://imports/textures/Wood/Wood_10-256x256.png" id="2_dqcov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjncf"]
+albedo_color = Color(0.478431, 0.921569, 0.552941, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjf67"]
+albedo_color = Color(0.2, 0.835294, 0.188235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5jxu"]
+albedo_texture = ExtResource("2_dqcov")
+uv1_triplanar = true
+
+[node name="Oak_Tree" instance=ExtResource("1_ivo6h")]
+
+[node name="Oak" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hjncf")
+surface_material_override/1 = SubResource("StandardMaterial3D_wjf67")
+surface_material_override/2 = SubResource("StandardMaterial3D_r5jxu")

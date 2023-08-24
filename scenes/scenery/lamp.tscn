@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhgoqh3obu3ue"]
 
-[ext_resource type="PackedScene" uid="uid://enkt6vr4levo" path="res://imports/lamplight.FBX" id="1_v6y4f"]
+[ext_resource type="PackedScene" uid="uid://enkt6vr4levo" path="res://imports/models/lamplight.FBX" id="1_v6y4f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbj7e"]
 transparency = 1

@@ -1,0 +1,318 @@
+[gd_scene load_steps=37 format=3 uid="uid://dnstqmcywbyk0"]
+
+[ext_resource type="Script" path="res://scenes/levels/startScreen.gd" id="1_0qm50"]
+[ext_resource type="Script" path="res://scripts/dayNightCycleDirectionalLight3d.gd" id="1_joojr"]
+[ext_resource type="Shader" path="res://scripts/shaders/daynight.gdshader" id="2_yjxrw"]
+[ext_resource type="Texture2D" uid="uid://djg8y25y06h5n" path="res://imports/kenny/Green/texture_09.png" id="3_kg3nm"]
+[ext_resource type="PackedScene" uid="uid://vwy15b4ydj0i" path="res://scenes/scenery/Stylized3DGrass.tscn" id="4_idtj6"]
+[ext_resource type="PackedScene" uid="uid://mkwbao4ljvf8" path="res://scenes/scenery/rock_1.tscn" id="5_xuemo"]
+[ext_resource type="PackedScene" uid="uid://mgnp2bjr2inb" path="res://scenes/scenery/rock_2.tscn" id="6_sv185"]
+[ext_resource type="PackedScene" uid="uid://dttb5y7ja0v12" path="res://scenes/scenery/rock_platforms_1.tscn" id="7_4ocqb"]
+[ext_resource type="PackedScene" uid="uid://dcn8dp7v2ay0l" path="res://scenes/scenery/rock_platforms_2.tscn" id="8_37ty7"]
+[ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="9_8smlj"]
+[ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="10_m5f2o"]
+[ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="12_yk5ym"]
+[ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="13_pkn0u"]
+[ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="14_hr8x8"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/gardener/gardener.gd" id="15_30y5r"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/arborist/arborist.gd" id="16_i14mt"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_LOD_variant.gd" id="17_vn7pu"]
+[ext_resource type="PackedScene" uid="uid://dyi2105inf0i1" path="res://scenes/scenery/oakTree.tscn" id="18_6gog3"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_node.gd" id="18_68qct"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_manager.gd" id="19_28l1c"]
+[ext_resource type="PackedScene" uid="uid://b0uruyb1ir6e3" path="res://scenes/scenery/poplarTree.tscn" id="21_hnu18"]
+[ext_resource type="PackedScene" uid="uid://5qb7776ol4il" path="res://scenes/utilities/main_menu.tscn" id="22_pgl7l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x331m"]
+shader = ExtResource("2_yjxrw")
+shader_parameter/topSkyDay = Color(0.796078, 0.941176, 0.992157, 1)
+shader_parameter/horizonSkyDay = Color(0.482353, 0.65098, 1, 1)
+shader_parameter/topSkyNight = Color(0.211765, 0.341176, 0.980392, 1)
+shader_parameter/horizonSkyNight = Color(0.365182, 0.523149, 1, 1)
+shader_parameter/topSunRiseSet = Color(1, 0.52549, 0.458824, 1)
+shader_parameter/horizonSunRiseSet = Color(0.619608, 0.235294, 0, 1)
+shader_parameter/sunColor = Color(0.898039, 0.92549, 0.0470588, 1)
+shader_parameter/sunSize = 0.2
+shader_parameter/moonColor = Color(0.858824, 0.858824, 0.301961, 1)
+shader_parameter/moonSize = 0.3
+shader_parameter/moonOffset = 0.05
+
+[sub_resource type="Sky" id="Sky_w4ilk"]
+sky_material = SubResource("ShaderMaterial_x331m")
+
+[sub_resource type="Environment" id="Environment_s7ksp"]
+background_mode = 2
+sky = SubResource("Sky_w4ilk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tg8n"]
+albedo_texture = ExtResource("3_kg3nm")
+uv1_triplanar = true
+
+[sub_resource type="Resource" id="Resource_qqhf4"]
+resource_name = "Greenhouse_LODVariant"
+script = ExtResource("17_vn7pu")
+spawned_spatial = ExtResource("18_6gog3")
+cast_shadow = 1
+metadata/class = "Greenhouse_LODVariant"
+
+[sub_resource type="Resource" id="Resource_8bcb6"]
+resource_local_to_scene = true
+resource_name = "MMIOctreeNode"
+script = ExtResource("18_68qct")
+member_origin_offsets = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+member_surface_normals = PackedVector3Array(0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0)
+member_octants = PackedByteArray(3, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7)
+child_nodes = []
+max_members = 75
+min_leaf_extent = 1.0
+octant = -1
+is_leaf = true
+center_pos = Vector3(-15, -21, -31)
+extent = 64.0
+bounds = AABB(-79, -85, -95, 128, 128, 128)
+max_bounds_to_center_dist = 110.851
+min_bounds_to_center_dist = 64.0
+active_LOD_index = 0
+MMI_name = "MultiMeshInstance3D"
+metadata/class = "MMIOctreeNode"
+
+[sub_resource type="Resource" id="Resource_7xgdq"]
+resource_local_to_scene = true
+resource_name = "MMIOctreeManager"
+script = ExtResource("19_28l1c")
+root_octree_node = SubResource("Resource_8bcb6")
+LOD_variants = Array[ExtResource("17_vn7pu")]([SubResource("Resource_qqhf4")])
+LOD_max_distance = 10.0
+LOD_kill_distance = -1.0
+metadata/class = "MMIOctreeManager"
+
+[sub_resource type="Resource" id="Resource_u0tck"]
+resource_name = "Greenhouse_LODVariant"
+script = ExtResource("17_vn7pu")
+spawned_spatial = ExtResource("21_hnu18")
+cast_shadow = 1
+metadata/class = "Greenhouse_LODVariant"
+
+[sub_resource type="Resource" id="Resource_nst6k"]
+resource_local_to_scene = true
+resource_name = "MMIOctreeNode"
+script = ExtResource("18_68qct")
+member_origin_offsets = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+member_surface_normals = PackedVector3Array(0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0)
+member_octants = PackedByteArray(3, 3, 3, 3, 3, 3, 3, 3, 3)
+child_nodes = []
+max_members = 75
+min_leaf_extent = 1.0
+octant = -1
+is_leaf = true
+center_pos = Vector3(33, -21, -21)
+extent = 64.0
+bounds = AABB(-31, -85, -85, 128, 128, 128)
+max_bounds_to_center_dist = 110.851
+min_bounds_to_center_dist = 64.0
+active_LOD_index = 0
+MMI_name = "MultiMeshInstance3D2"
+metadata/class = "MMIOctreeNode"
+
+[sub_resource type="Resource" id="Resource_y1b4m"]
+resource_local_to_scene = true
+resource_name = "MMIOctreeManager"
+script = ExtResource("19_28l1c")
+root_octree_node = SubResource("Resource_nst6k")
+LOD_variants = Array[ExtResource("17_vn7pu")]([SubResource("Resource_u0tck")])
+LOD_max_distance = 10.0
+LOD_kill_distance = -0.99
+metadata/class = "MMIOctreeManager"
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qisfy"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_0ud7l"]
+resource_local_to_scene = true
+transform_format = 1
+instance_count = 12
+mesh = SubResource("ArrayMesh_qisfy")
+buffer = PackedFloat32Array(0.693581, 0, 0.720379, -22.1108, 0, 1, 0, 0.5, -0.720379, 0, 0.693581, -1.04889, 0.348237, 0, 0.937406, -13.5696, 0, 1, 0, 0.5, -0.937406, 0, 0.348237, -13.834, -0.698176, 0, -0.715926, -0.517262, 0, 1, 0, 0.500001, 0.715926, 0, -0.698176, -12.341, 0.996263, 0, -0.0863756, 8.8953, 0, 1, 0, 0.5, 0.0863756, 0, 0.996263, -12.4359, -0.790501, 0, -0.61246, 1.06358, 0, 1, 0, 0.5, 0.61246, 0, -0.790501, 20.2261, -0.77878, 0, -0.627297, -8.93305, 0, 1, 0, 0.5, 0.627297, 0, -0.77878, 5.83942, -0.999671, 0, -0.0256678, 7.70642, 0, 1, 0, 0.5, 0.0256678, 0, -0.999671, 6.87902, -0.882596, 0, 0.470132, -11.346, 0, 1, 0, 0.5, -0.470132, 0, -0.882596, -11.031, 0.685257, 0, -0.728301, -14.1442, 0, 1, 0, 0.500002, 0.728301, 0, 0.685257, -2.07911, 0.328163, 0, -0.944621, 13.4655, 0, 1, 0, 0.5, 0.944621, 0, 0.328163, 1.05149, -0.0675994, 0, -0.997713, -5.0938, 0, 1, 0, 0.5, 0.997713, 0, -0.0675994, -3.54031, 0.572789, 0, -0.819703, -10.7403, 0, 1, 0, 0.5, 0.819703, 0, 0.572789, 12.055)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7i8cf"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_bjxsr"]
+resource_local_to_scene = true
+transform_format = 1
+instance_count = 9
+mesh = SubResource("ArrayMesh_7i8cf")
+buffer = PackedFloat32Array(0.23259, 0, 0.972575, -15.1541, 0, 1, 0, 0.499999, -0.972575, 0, 0.23259, -2.38183, -0.683891, 0, -0.729584, -23.2659, 0, 1, 0, 0.5, 0.729584, 0, -0.683891, -0.528208, 0.756301, 0, -0.654224, -16.6579, 0, 1, 0, 0.5, 0.654224, 0, 0.756301, 7.265, 0.548316, 0, -0.836271, -12.7134, 0, 1, 0, 0.5, 0.836271, 0, 0.548316, -10.7512, 0.691446, 0, 0.722428, 14.7495, 0, 1, 0, 0.5, -0.722428, 0, 0.691446, 0.991749, -0.415772, 0, 0.909469, -4.11131, 0, 1, 0, 0.5, -0.909469, 0, -0.415772, 1.16369, -0.451478, 0, 0.892282, 5.80479, 0, 1, 0, 0.5, -0.892282, 0, -0.451478, 15.4626, -0.306561, 0, 0.951851, -8.77493, 0, 1, 0, 0.5, -0.951851, 0, -0.306561, 14.9146, 0.80346, 0, -0.595359, -14.2584, 0, 1, 0, 0.5, 0.595359, 0, 0.80346, 17.6553)
+
+[node name="StartScreen" type="Node3D"]
+script = ExtResource("1_0qm50")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.756995, -0.65342, 0, 0.65342, -0.756995, 0, 0, 0)
+directional_shadow_max_distance = 200.0
+script = ExtResource("1_joojr")
+rotationSpeed = 0.02
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s7ksp")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="Map"]
+material_override = SubResource("StandardMaterial3D_8tg8n")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Grass" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Root2" parent="Map/Grass" instance=ExtResource("4_idtj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0396, 0.0149341, 1.7479)
+
+[node name="Rocks" type="Node3D" parent="Map"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -21.2013)
+
+[node name="Rock_1" parent="Map/Rocks" instance=ExtResource("5_xuemo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6319, 0.432467, 0)
+
+[node name="Rock_2" parent="Map/Rocks" instance=ExtResource("5_xuemo")]
+transform = Transform3D(0.857877, 0, -0.513856, 0, 1, 0, 0.513856, 0, 0.857877, 36.6319, -0.0815116, 0)
+
+[node name="Rock_5" parent="Map/Rocks" instance=ExtResource("5_xuemo")]
+transform = Transform3D(0.857877, 0, -0.513856, 0, 1, 0, 0.513856, 0, 0.857877, 38.0077, 1.24757, -0.764099)
+
+[node name="Rock_3" parent="Map/Rocks" instance=ExtResource("6_sv185")]
+transform = Transform3D(-0.919156, 0, -0.393894, 0, 1, 0, 0.393894, 0, -0.919156, 38.2977, 0.247572, 1.23588)
+
+[node name="Rock_4" parent="Map/Rocks" instance=ExtResource("6_sv185")]
+transform = Transform3D(-0.919156, 0, -0.393894, 0, 1, 0, 0.393894, 0, -0.919156, 38.2977, -0.633641, 3.6041)
+
+[node name="Rock_6" parent="Map/Rocks" instance=ExtResource("6_sv185")]
+transform = Transform3D(-0.442524, 0, 0.896757, 0, 1, 0, -0.896757, 0, -0.442524, 38.2977, 0.247572, 2.26776)
+
+[node name="RockPlatforms_1" parent="Map/Rocks" instance=ExtResource("7_4ocqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 0)
+
+[node name="RockPlatforms_3" parent="Map/Rocks" instance=ExtResource("7_4ocqb")]
+transform = Transform3D(0.580703, 0, -0.814116, 0, 1, 0, 0.814116, 0, 0.580703, 43.5641, 1.81057, 0)
+
+[node name="RockPlatforms_2" parent="Map/Rocks" instance=ExtResource("8_37ty7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 0, 5)
+
+[node name="RockPlatforms_4" parent="Map/Rocks" instance=ExtResource("8_37ty7")]
+transform = Transform3D(0.779075, 0, -0.62693, 0, 1, 0, 0.62693, 0, 0.779075, 46.2409, 1.44938, 5)
+
+[node name="RockPlatforms_5" parent="Map/Rocks" instance=ExtResource("8_37ty7")]
+transform = Transform3D(0.896332, 0, 0.443384, 0, 1, 0, -0.443384, 0, 0.896332, 46.2409, 2.77744, 1.07317)
+
+[node name="house1" parent="." instance=ExtResource("10_m5f2o")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.565316, 10)
+script = null
+
+[node name="orangeBox" parent="." instance=ExtResource("12_yk5ym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.3666, 0)
+script = null
+
+[node name="Build_2" parent="." instance=ExtResource("13_pkn0u")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 14, 0.513264, 12)
+
+[node name="Gardener" type="Node3D" parent="."]
+script = ExtResource("15_30y5r")
+file_management/garden_work_directory = "res://imports/"
+gardening/gardening_collision_mask = 1.0
+plugin_version = "1.3.0"
+storage_version = 3
+metadata/class = "Gardener"
+
+[node name="Arborist" type="Node3D" parent="Gardener"]
+script = ExtResource("16_i14mt")
+octree_managers = [SubResource("Resource_7xgdq"), SubResource("Resource_y1b4m")]
+metadata/class = "Arborist"
+
+[node name="MMI_container" type="Node3D" parent="Gardener/Arborist"]
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Gardener/Arborist/MMI_container"]
+multimesh = SubResource("MultiMesh_0ud7l")
+
+[node name="Oak_Tree" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(0.693581, 0, 0.720379, 0, 1, 0, -0.720379, 0, 0.693581, -22.1108, 0.5, -1.04889)
+
+[node name="@Node3D@129249" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(0.348237, 0, 0.937406, 0, 1, 0, -0.937406, 0, 0.348237, -13.5696, 0.5, -13.834)
+
+[node name="@Node3D@129250" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(-0.698176, 0, -0.715926, 0, 1, 0, 0.715926, 0, -0.698176, -0.517262, 0.500001, -12.341)
+
+[node name="@Node3D@129251" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(0.996263, 0, -0.0863756, 0, 1, 0, 0.0863756, 0, 0.996263, 8.8953, 0.5, -12.4359)
+
+[node name="@Node3D@129252" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(-0.790501, 0, -0.61246, 0, 1, 0, 0.61246, 0, -0.790501, 1.06358, 0.5, 20.2261)
+
+[node name="@Node3D@129253" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(-0.77878, 0, -0.627297, 0, 1, 0, 0.627297, 0, -0.77878, -8.93305, 0.5, 5.83942)
+
+[node name="@Node3D@129254" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(-0.999671, 0, -0.0256678, 0, 1, 0, 0.0256678, 0, -0.999671, 7.70642, 0.5, 6.87902)
+
+[node name="@Node3D@129255" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(-0.882596, 0, 0.470132, 0, 1, 0, -0.470132, 0, -0.882596, -11.346, 0.5, -11.031)
+
+[node name="@Node3D@129256" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(0.685257, 0, -0.728301, 0, 1, 0, 0.728301, 0, 0.685257, -14.1442, 0.500002, -2.07911)
+
+[node name="@Node3D@129257" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(0.328163, 0, -0.944621, 0, 1, 0, 0.944621, 0, 0.328163, 13.4655, 0.5, 1.05149)
+
+[node name="@Node3D@129258" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(-0.0675994, 0, -0.997713, 0, 1, 0, 0.997713, 0, -0.0675994, -5.0938, 0.5, -3.54031)
+
+[node name="@Node3D@129259" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D" instance=ExtResource("18_6gog3")]
+transform = Transform3D(0.572789, 0, -0.819703, 0, 1, 0, 0.819703, 0, 0.572789, -10.7403, 0.5, 12.055)
+
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="Gardener/Arborist/MMI_container"]
+multimesh = SubResource("MultiMesh_bjxsr")
+
+[node name="Poplar_Tree" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(0.23259, 0, 0.972575, 0, 1, 0, -0.972575, 0, 0.23259, -15.1541, 0.499999, -2.38183)
+
+[node name="@Node3D@129260" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(-0.683891, 0, -0.729584, 0, 1, 0, 0.729584, 0, -0.683891, -23.2659, 0.5, -0.528208)
+
+[node name="@Node3D@129261" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(0.756301, 0, -0.654224, 0, 1, 0, 0.654224, 0, 0.756301, -16.6579, 0.5, 7.265)
+
+[node name="@Node3D@129262" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(0.548316, 0, -0.836271, 0, 1, 0, 0.836271, 0, 0.548316, -12.7134, 0.5, -10.7512)
+
+[node name="@Node3D@129263" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(0.691446, 0, 0.722428, 0, 1, 0, -0.722428, 0, 0.691446, 14.7495, 0.5, 0.991749)
+
+[node name="@Node3D@129264" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(-0.415772, 0, 0.909469, 0, 1, 0, -0.909469, 0, -0.415772, -4.11131, 0.5, 1.16369)
+
+[node name="@Node3D@129265" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(-0.451478, 0, 0.892282, 0, 1, 0, -0.892282, 0, -0.451478, 5.80479, 0.5, 15.4626)
+
+[node name="@Node3D@129266" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(-0.306561, 0, 0.951851, 0, 1, 0, -0.951851, 0, -0.306561, -8.77493, 0.5, 14.9146)
+
+[node name="@Node3D@129267" type="Node3D" parent="Gardener/Arborist/MMI_container/MultiMeshInstance3D2" instance=ExtResource("21_hnu18")]
+transform = Transform3D(0.80346, 0, -0.595359, 0, 1, 0, 0.595359, 0, 0.80346, -14.2584, 0.5, 17.6553)
+
+[node name="player" parent="." instance=ExtResource("14_hr8x8")]
+transform = Transform3D(0.700486, 0, 0.713667, 0, 1, 0, -0.713667, 0, 0.700486, 2.9596, 1.03573, -0.0638057)
+script = null
+
+[node name="CloudSpawner3" parent="." instance=ExtResource("9_8smlj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8808, 10.5487, 21.1667)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.926529, -0.05171, 0.372654, 0, 0.990509, 0.137445, -0.376224, 0.127346, -0.917735, 3.33816, 3.43613, -4.62375)
+current = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="MainMenu" parent="." instance=ExtResource("22_pgl7l")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
