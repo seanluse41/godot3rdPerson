@@ -44,6 +44,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Options"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Quit"
+
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
