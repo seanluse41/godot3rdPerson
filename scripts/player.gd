@@ -140,7 +140,10 @@ func interact():
 			interact_timer.start()
 
 func _handlePause():
-	PauseMenu._pause()
+	if PauseMenu.visible:
+		pass
+	else:
+		PauseMenu._pause()
 
 func _on_interact_timer_timeout():
 	_resetInteract()
