@@ -75,8 +75,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("menu"):
+		_handlePause()
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not isLocked:
@@ -138,6 +138,9 @@ func interact():
 			currentInteractable.onInteract()
 			interact_box.hide()
 			interact_timer.start()
+
+func _handlePause():
+	PauseMenu._pause()
 
 func _on_interact_timer_timeout():
 	_resetInteract()

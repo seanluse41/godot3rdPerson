@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://5qb7776ol4il"]
+[gd_scene load_steps=2 format=3 uid="uid://5qb7776ol4il"]
+
+[ext_resource type="Script" path="res://scenes/utilities/main_menu.gd" id="1_issqy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_issqy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -29,7 +32,7 @@ theme_override_constants/separation = 100
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
-text = "Start"
+text = "New"
 
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -40,3 +43,7 @@ text = "Load"
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Options"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_button_up"]

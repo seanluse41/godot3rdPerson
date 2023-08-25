@@ -7,16 +7,11 @@ var animations = [
 	"walking",
 	"get_up",
 	"running",
-	"kick",
-	"fall_down"
+	"kick"
 ]
 
 func _ready():
 	animationPlayer.play("walking")
-
-func _process(delta):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
 
 func _on_timer_timeout():
 	animations.shuffle()
