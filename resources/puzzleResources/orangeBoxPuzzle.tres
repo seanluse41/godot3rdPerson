@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://ovtg423qornm"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=3 format=3 uid="uid://ovtg423qornm"]
 
+[ext_resource type="AudioStream" uid="uid://dxv8mjqtamlu0" path="res://imports/sounds/whimsypiano.mp3" id="1_6mm5j"]
 [ext_resource type="Script" path="res://resources/Puzzle.gd" id="1_ymxap"]
 
 [resource]
@@ -10,3 +11,4 @@ solved = false
 type = "physical"
 path = "res://scenes/levels/puzzles/orangeBox/orangeBoxPuzzle.tscn"
 returnPath = "res://scenes/levels/field.tscn"
+audioTrack = ExtResource("1_6mm5j")

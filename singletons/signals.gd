@@ -27,3 +27,5 @@ signal textClose
 signal puzzleSaved
 
 signal puzzleLoaded
+
+signal saveDataDirectoryOK

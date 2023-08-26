@@ -22,8 +22,8 @@ SceneSwitcher="*res://singletons/sceneSwitcher.gd"
 SceneTransition="*res://singletons/scene_transition.tscn"
 TextBox="*res://singletons/textBox.tscn"
 GlobalAudio="*res://singletons/globalAudio.tscn"
-Gamedata="*res://singletons/Gamedata.gd"
 PauseMenu="*res://singletons/pauseMenu.tscn"
+Gamedata="*res://singletons/Gamedata.gd"
 
 [display]
 

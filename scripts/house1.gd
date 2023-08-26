@@ -6,8 +6,6 @@ extends Interactable
 func onInteract():
 	_interactionStart(func(): house1Door())
 func house1Door():
-	print(self, "interacted")
-	GlobalAudio._playAudio(nextTrack)
 	await SceneSwitcher.switchScene(houseInnerScene)
 	_interactionFinished()
 

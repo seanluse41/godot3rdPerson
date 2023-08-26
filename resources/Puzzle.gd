@@ -8,15 +8,13 @@ class_name Puzzle
 @export var type: String
 @export var path: String
 @export var returnPath: String
-
-var saveFilePath = "user://save/"
-var saveFileName = "save.tres"
+@export var audioTrack: AudioStreamMP3
 
 var puzzleSavedData
 
 func _puzzleSolved(puzzleResource):
 	puzzleResource.solved = true
-	_saveData(puzzleResource)
+	_savePuzzleData(puzzleResource)
 
 func _getPuzzleStatus():
 	return self.solved
@@ -24,11 +22,21 @@ func _getPuzzleStatus():
 func _getPuzzlePath():
 	return self.path
 
-func _saveData(puzzleResource):
-	ResourceSaver.save(puzzleResource, saveFilePath + saveFileName)
-	Signals.puzzleSaved.emit()
+func _savePuzzleData(puzzleResource):
+	Gamedata._verifySaveDirectory()
+	Gamedata._savePuzzleData(puzzleResource)
 
 func _loadData():
-	puzzleSavedData = ResourceLoader.load(saveFilePath + saveFileName)
+	puzzleSavedData = Gamedata._loadPuzzleData()
 	Signals.puzzleLoaded.emit()
 	return puzzleSavedData
+
+func _setMusic():
+	GlobalAudio._playAudio(audioTrack)
+
+func _enterPuzzle():
+	await SceneSwitcher.switchScene(path)
+	GlobalAudio._playAudio(audioTrack)
+
+func _exitPuzzle():
+	SceneSwitcher.switchScene(returnPath)

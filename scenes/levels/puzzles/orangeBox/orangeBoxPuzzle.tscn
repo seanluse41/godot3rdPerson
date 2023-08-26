@@ -102,7 +102,7 @@ data = {
 }
 
 [node name="orangeBox" parent="BoxPuzzle" instance=ExtResource("3_unen7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4832, 0.599432, 10.4469)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6131, 0.599432, 12.8761)
 
 [node name="player" parent="." instance=ExtResource("2_q3u5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 20)

@@ -3,8 +3,13 @@ extends Interactable
 
 @export var puzzleResource: Resource
 @export var testText: String
+var inPuzzle : bool = false
 
 func _ready():
+	if get_tree().current_scene.scene_file_path == puzzleResource.path:
+		inPuzzle = true
+	else:
+		inPuzzle = false
 	var loadedResource = await puzzleResource._loadData()
 	if loadedResource == null:
 		pass
@@ -16,7 +21,7 @@ func _ready():
 			collision_shape_3d.disabled = true
 
 func onInteract():
-	if puzzleResource.solved and not get_tree().current_scene.scene_file_path == puzzleResource.path:
+	if puzzleResource.solved and not inPuzzle:
 		Signals.textStarted.emit(testText)
 		await Signals.textFinished
 		_interactionFinished()
@@ -24,12 +29,12 @@ func onInteract():
 		_interactionStart(func(): orangeBox())
 
 func orangeBox():
-	if get_tree().current_scene.scene_file_path == puzzleResource.path:
+	if inPuzzle:
 		_solve()
-		await SceneSwitcher.switchScene(puzzleResource.returnPath)
+		puzzleResource._exitPuzzle()
 		_interactionFinished()
 	else:
-		await SceneSwitcher.switchScene(puzzleResource.path)
+		await puzzleResource._enterPuzzle()
 		_interactionFinished()
 
 func _on_area_3d_body_entered(_body):
