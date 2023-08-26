@@ -13,43 +13,189 @@ script = ExtResource("1_issqy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Main" type="Control" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Main"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -406.0
-offset_top = -197.5
-offset_right = -242.0
-offset_bottom = 197.5
+offset_left = -164.0
+offset_top = -280.0
+offset_bottom = 280.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Main/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "New"
 
-[node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Load" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Load"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Options"
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Quit"
 
-[connection signal="button_up" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
+[node name="LoadScreen" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/LoadScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="save1" type="Button" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer/save1"]
+layout_mode = 2
+offset_right = 424.0
+offset_bottom = 696.0
+theme_override_constants/separation = 32
+
+[node name="saveNumber1" type="Label" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer/save1/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "1"
+horizontal_alignment = 1
+
+[node name="playerName1" type="Label" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer/save1/VBoxContainer"]
+layout_mode = 2
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="save2" type="Button" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2/save2"]
+layout_mode = 2
+offset_right = 424.0
+offset_bottom = 696.0
+theme_override_constants/separation = 32
+
+[node name="saveNumber2" type="Label" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2/save2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "2"
+horizontal_alignment = 1
+
+[node name="playerName2" type="Label" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2/save2/VBoxContainer"]
+layout_mode = 2
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="save3" type="Button" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3/save3"]
+layout_mode = 2
+offset_right = 424.0
+offset_bottom = 696.0
+theme_override_constants/separation = 32
+
+[node name="saveNumber3" type="Label" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3/save3/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "3"
+horizontal_alignment = 1
+
+[node name="playerName3" type="Label" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3/save3/VBoxContainer"]
+layout_mode = 2
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="backButton" type="Button" parent="MarginContainer/LoadScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -96.0
+offset_right = 78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="OptionsScreen" type="Control" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Load" to="." method="_on_load_button_up"]
+[connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Options" to="." method="_on_options_button_up"]
+[connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="pressed" from="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer/save1" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2/save2" to="." method="_on_save_2_pressed"]
+[connection signal="pressed" from="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3/save3" to="." method="_on_save_3_pressed"]
+[connection signal="pressed" from="MarginContainer/LoadScreen/backButton" to="." method="_on_back_button_pressed"]

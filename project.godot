@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="third-person-controller-demo"
-run/main_scene="res://scenes/levels/startScreen.tscn"
+run/main_scene="res://scenes/levels/screens/startScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -10,5 +10,5 @@ name = "orangeBoxPuzzle"
 solved = false
 type = "physical"
 path = "res://scenes/levels/puzzles/orangeBox/orangeBoxPuzzle.tscn"
-returnPath = "res://scenes/levels/field.tscn"
+returnPath = "res://scenes/levels/areas/field.tscn"
 audioTrack = ExtResource("1_6mm5j")

@@ -10,5 +10,5 @@ name = "HouseTorchPuzzle"
 solved = false
 type = "visual"
 path = "res://scenes/levels/puzzles/houseTorchPuzzle/houseTorchPuzzle.tscn"
-returnPath = ""
+returnPath = "res://scenes/levels/areas/inHouse1.tscn"
 audioTrack = ExtResource("1_wn7ym")

@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dcn8dp7v2ay0l" path="res://scenes/scenery/rock_platforms_2.tscn" id="11_uy6nm"]
 [ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="12_jlxnx"]
 [ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="13_xmeya"]
-[ext_resource type="AudioStream" uid="uid://d1tmrwajb1h5w" path="res://imports/zelda-in-a-house.mp3" id="14_thccj"]
+[ext_resource type="AudioStream" uid="uid://d1tmrwajb1h5w" path="res://imports/sounds/zelda-in-a-house.mp3" id="14_thccj"]
 [ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="15_vo6mu"]
 [ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="16_4uls4"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="17_ttvs7"]
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, -12)
 
 [node name="house1" parent="." instance=ExtResource("13_xmeya")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.565316, 10)
-houseInnerScene = "res://scenes/levels/inHouse1.tscn"
+houseInnerScene = "res://scenes/levels/areas/inHouse1.tscn"
 nextTrack = ExtResource("14_thccj")
 
 [node name="orangeBox" parent="." instance=ExtResource("15_vo6mu")]

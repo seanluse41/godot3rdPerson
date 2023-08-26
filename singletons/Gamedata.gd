@@ -1,6 +1,8 @@
 extends Node
 
-var saveID = "1"
+@onready var playerData : PlayerData
+
+var saveID
 var saveFilePath = "user://save/"
 var saveFileName = "save-%s.tres" % [saveID]
 var puzzleSavedData : Resource

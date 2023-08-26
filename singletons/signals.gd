@@ -29,3 +29,5 @@ signal puzzleSaved
 signal puzzleLoaded
 
 signal saveDataDirectoryOK
+
+signal gameLoadSelected
