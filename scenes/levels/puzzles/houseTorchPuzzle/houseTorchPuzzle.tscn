@@ -53,39 +53,39 @@ shape = SubResource("CylinderShape3D_lj7ms")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="platform"]
 mesh = SubResource("CylinderMesh_r48hu")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="platform"]
+[node name="ringCollision" type="CSGCombiner3D" parent="platform"]
 use_collision = true
 collision_mask = 0
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="platform/CSGCombiner3D"]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="platform/ringCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29898, 0)
 inner_radius = 10.0
 outer_radius = 10.5
 sides = 24
 material = SubResource("StandardMaterial3D_7wolh")
 
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="platform/CSGCombiner3D"]
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="platform/ringCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633419, 0)
 inner_radius = 10.0
 outer_radius = 10.5
 sides = 24
 material = SubResource("StandardMaterial3D_7wolh")
 
-[node name="CSGTorus3D3" type="CSGTorus3D" parent="platform/CSGCombiner3D"]
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="platform/ringCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88775, 0)
 inner_radius = 10.0
 outer_radius = 10.5
 sides = 24
 material = SubResource("StandardMaterial3D_7wolh")
 
-[node name="CSGTorus3D4" type="CSGTorus3D" parent="platform/CSGCombiner3D"]
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="platform/ringCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15874, 0)
 inner_radius = 10.0
 outer_radius = 10.5
 sides = 24
 material = SubResource("StandardMaterial3D_7wolh")
 
-[node name="CSGTorus3D5" type="CSGTorus3D" parent="platform/CSGCombiner3D"]
+[node name="CSGTorus3D5" type="CSGTorus3D" parent="platform/ringCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38867, 0)
 inner_radius = 10.0
 outer_radius = 10.5
@@ -99,4 +99,4 @@ light_energy = 5.0
 omni_range = 15.0
 
 [node name="player" parent="." instance=ExtResource("1_k6gy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460198, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.324532, 0)

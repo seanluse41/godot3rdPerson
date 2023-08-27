@@ -68,7 +68,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
 
 [node name="3" type="StaticBody3D" parent="walls"]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -10, -6, 0)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -7, -6, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="walls/3"]
 shape = SubResource("BoxShape3D_472hf")
@@ -78,8 +78,26 @@ mesh = SubResource("BoxMesh_iq5eq")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
 
+[node name="lamps2" type="Node3D" parent="walls/3"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, -2.58253e-08, 0.590813, -11.3215)
+
+[node name="lamplight" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, -3, -2.38419e-07, 0)
+
+[node name="lamplight2" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, -1, 0, 0)
+
+[node name="lamplight3" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 3, 2.38419e-07, 0)
+
+[node name="lamplight4" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 1, 0, 0)
+
+[node name="lamplight5" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 5, 2.38419e-07, 0)
+
 [node name="4" type="StaticBody3D" parent="walls"]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 9, -6, 0)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 5, -6, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="walls/4"]
 shape = SubResource("BoxShape3D_472hf")
@@ -89,8 +107,28 @@ mesh = SubResource("BoxMesh_iq5eq")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_alv75")
 
+[node name="lamps" type="Node3D" parent="walls/4"]
+
+[node name="lamplight" parent="walls/4/lamps" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(-2.18557e-07, -1.88465e-20, -5, 5, -2.18557e-07, -2.18557e-07, -2.18557e-07, -5, 9.55343e-15, 2.51931e-08, -0.576351, -12)
+
+[node name="lamplight2" parent="walls/4/lamps" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(-2.18557e-07, -1.88465e-20, -5, 5, -2.18557e-07, -2.18557e-07, -2.18557e-07, -5, 9.55343e-15, -3.00243, -0.576351, -12)
+
+[node name="lamplight3" parent="walls/4/lamps" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(-2.18557e-07, -1.88465e-20, -5, 5, -2.18557e-07, -2.18557e-07, -2.18557e-07, -5, 9.55343e-15, 2.99757, -0.576351, -12)
+
+[node name="lamplight4" parent="walls/4/lamps" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(-2.18557e-07, -1.88465e-20, -5, 5, -2.18557e-07, -2.18557e-07, -2.18557e-07, -5, 9.55343e-15, 5.99757, -0.57635, -12)
+
+[node name="lamplight5" parent="walls/4/lamps" instance=ExtResource("3_wrh6t")]
+transform = Transform3D(-2.18557e-07, -1.88465e-20, -5, 5, -2.18557e-07, -2.18557e-07, -2.18557e-07, -5, 9.55343e-15, 8.99757, -0.57635, -12)
+
 [node name="player" parent="." instance=ExtResource("2_wgmvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276135, 0)
 
-[node name="lamplight" parent="." instance=ExtResource("3_wrh6t")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 8.42365, 3, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35625, -0.656416)
+light_color = Color(1, 0.631373, 0.407843, 1)
+light_energy = 11.503
+omni_range = 10.0
