@@ -9,8 +9,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_start_button_up():
-	SceneSwitcher.switchScene("res://scenes/levels/areas/field.tscn")
-
+	Gamedata._newGame()
 
 func _on_load_button_up():
 	main.hide()

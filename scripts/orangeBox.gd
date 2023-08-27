@@ -10,7 +10,7 @@ func _ready():
 		inPuzzle = true
 	else:
 		inPuzzle = false
-	var loadedResource = await puzzleResource._loadData()
+	var loadedResource = await puzzleResource._loadData(puzzleResource.id)
 	if loadedResource == null:
 		pass
 	else:

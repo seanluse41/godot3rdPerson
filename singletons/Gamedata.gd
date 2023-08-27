@@ -7,6 +7,12 @@ var saveFilePath = "user://save/"
 var saveFileName = "save-%s.tres" % [saveID]
 var puzzleSavedData : Resource
 
+func _newGame():
+	_verifySaveDirectory()
+	if FileAccess.file_exists(saveFilePath + saveFileName):
+		DirAccess.remove_absolute(saveFilePath + saveFileName)
+	SceneSwitcher._newGame()
+
 func _verifySaveDirectory():
 	DirAccess.make_dir_absolute(saveFilePath)
 	Signals.saveDataDirectoryOK.emit()

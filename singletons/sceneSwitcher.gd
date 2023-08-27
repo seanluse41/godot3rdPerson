@@ -13,3 +13,6 @@ func _deferredSwitchScene(nextScene):
 	get_tree().change_scene_to_file(nextScene)
 	await get_tree().create_timer(1).timeout
 	Signals.loadingFinished.emit()
+
+func _newGame():
+	switchScene("res://scenes/levels/areas/field.tscn")
