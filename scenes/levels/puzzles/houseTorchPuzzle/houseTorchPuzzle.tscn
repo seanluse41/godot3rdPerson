@@ -1,18 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://4illeccgw12p"]
 
+[ext_resource type="Texture2D" uid="uid://0ikyxrc11oxo" path="res://imports/textures/Wood/Wood_11-256x256.png" id="1_1pj3i"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="1_k6gy4"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_105sn"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_fbcf5"]
-sky_material = SubResource("ProceduralSkyMaterial_105sn")
 
 [sub_resource type="Environment" id="Environment_6oyh7"]
 background_mode = 2
 background_energy_multiplier = 0.3
-sky = SubResource("Sky_fbcf5")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
@@ -25,7 +18,16 @@ volumetric_fog_albedo = Color(0.737255, 0.737255, 0.737255, 1)
 height = 0.5
 radius = 10.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4n42"]
+albedo_texture = ExtResource("1_1pj3i")
+roughness = 0.4
+backlight_enabled = true
+backlight = Color(0.945098, 0.686275, 0.498039, 1)
+uv1_scale = Vector3(6, 6, 6)
+uv1_triplanar = true
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_r48hu"]
+material = SubResource("StandardMaterial3D_q4n42")
 top_radius = 10.0
 bottom_radius = 10.0
 height = 0.5
@@ -53,7 +55,7 @@ mesh = SubResource("CylinderMesh_r48hu")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="platform"]
 use_collision = true
-collision_mask = 5
+collision_mask = 0
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="platform/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29898, 0)
@@ -92,12 +94,9 @@ material = SubResource("StandardMaterial3D_7wolh")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.18588, 0)
-visible = false
 light_color = Color(0.835294, 0.407843, 0, 1)
-light_energy = 10.0
-light_indirect_energy = 5.166
-light_volumetric_fog_energy = 4.124
-omni_range = 7.08
+light_energy = 5.0
+omni_range = 15.0
 
 [node name="player" parent="." instance=ExtResource("1_k6gy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460198, 0)
