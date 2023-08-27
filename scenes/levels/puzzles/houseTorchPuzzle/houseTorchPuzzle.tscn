@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://4illeccgw12p"]
+[gd_scene load_steps=10 format=3 uid="uid://4illeccgw12p"]
 
 [ext_resource type="Texture2D" uid="uid://0ikyxrc11oxo" path="res://imports/textures/Wood/Wood_11-256x256.png" id="1_1pj3i"]
+[ext_resource type="Script" path="res://scenes/levels/puzzles/houseTorchPuzzle/houseTorchPuzzle.gd" id="1_grkw7"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="1_k6gy4"]
+[ext_resource type="Resource" uid="uid://81bhnuv54lyl" path="res://resources/puzzleResources/houseTorchPuzzle.tres" id="2_mm8x0"]
 
 [sub_resource type="Environment" id="Environment_6oyh7"]
 background_mode = 2
@@ -37,6 +39,8 @@ cap_bottom = false
 transparency = 1
 
 [node name="HouseTorchPuzzle" type="Node3D"]
+script = ExtResource("1_grkw7")
+puzzle = ExtResource("2_mm8x0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

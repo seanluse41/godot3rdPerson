@@ -25,8 +25,8 @@ transparency = 1
 blend_mode = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4ml40"]
-height = 1.07938
-radius = 0.373035
+height = 0.642403
+radius = 0.210271
 
 [node name="lamplight" instance=ExtResource("1_70btc")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
@@ -56,6 +56,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c7w7q")
 surface_material_override/0 = SubResource("StandardMaterial3D_lect3")
 
 [node name="Area3D" type="Area3D" parent="." index="2"]
+collision_layer = 17
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("CylinderShape3D_4ml40")

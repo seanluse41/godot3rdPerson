@@ -11,13 +11,15 @@ func _ready():
 		inPuzzle = true
 	else:
 		inPuzzle = false
-	var loadedResource = await puzzleResource._loadData()
+	var loadedResource = await puzzleResource._loadData(puzzleResource.id)
 	if loadedResource == null:
 		pass
 	else:
 		puzzleResource = loadedResource
 
 func onInteract():
+	print(puzzleResource.solved)
+	print(inPuzzle)
 	if puzzleResource.solved and not inPuzzle:
 		Signals.textStarted.emit(testText)
 		await Signals.textFinished

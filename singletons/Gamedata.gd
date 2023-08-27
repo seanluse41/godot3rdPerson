@@ -18,7 +18,7 @@ func _savePuzzleData(puzzleResource):
 	ResourceSaver.save(puzzleResource, saveFilePath + saveFileName)
 	Signals.puzzleSaved.emit()
 
-func _loadPuzzleData():
+func _loadPuzzleData(puzzleID):
 	puzzleSavedData = ResourceLoader.load(saveFilePath + saveFileName)
 	Signals.puzzleLoaded.emit()
 	return puzzleSavedData

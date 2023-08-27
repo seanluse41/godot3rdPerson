@@ -26,8 +26,8 @@ func _savePuzzleData(puzzleResource):
 	Gamedata._verifySaveDirectory()
 	Gamedata._savePuzzleData(puzzleResource)
 
-func _loadData():
-	puzzleSavedData = Gamedata._loadPuzzleData()
+func _loadData(puzzleID):
+	puzzleSavedData = Gamedata._loadPuzzleData(puzzleID)
 	Signals.puzzleLoaded.emit()
 	return puzzleSavedData
 
