@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhgoqh3obu3ue"]
+[gd_scene load_steps=9 format=3 uid="uid://bwmhwtga37kl2"]
 
-[ext_resource type="PackedScene" uid="uid://enkt6vr4levo" path="res://imports/models/lamplight.FBX" id="1_v6y4f"]
+[ext_resource type="PackedScene" uid="uid://enkt6vr4levo" path="res://imports/models/lamplight.FBX" id="1_70btc"]
+[ext_resource type="Script" path="res://scenes/levels/puzzles/houseTorchPuzzle/lampPuzzleEntry.gd" id="2_cgi2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbj7e"]
 transparency = 1
@@ -23,8 +24,13 @@ blend_mode = 1
 transparency = 1
 blend_mode = 1
 
-[node name="lamplight" instance=ExtResource("1_v6y4f")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ml40"]
+height = 1.07938
+radius = 0.373035
+
+[node name="lamplight" instance=ExtResource("1_70btc")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("2_cgi2d")
 
 [node name="Omni001" parent="RootNode" index="0"]
 transform = Transform3D(0.2, 0, 0, 0, -2.38419e-08, -0.2, 0, 0.2, -2.38419e-08, -0.0523749, 0.0310854, 0)
@@ -48,3 +54,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c7w7q")
 
 [node name="Rectangle001" parent="RootNode" index="6"]
 surface_material_override/0 = SubResource("StandardMaterial3D_lect3")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_4ml40")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

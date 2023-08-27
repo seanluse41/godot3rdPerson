@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctr3aao2xlt3n"]
+[gd_scene load_steps=9 format=3 uid="uid://ctr3aao2xlt3n"]
 
 [ext_resource type="Texture2D" uid="uid://bc1iho0f2jvdb" path="res://scenes/scenery/LogHouses/Textures/WoodFloor/WoodFloor_Base Color_2.png" id="1_2qhp0"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="2_wgmvo"]
+[ext_resource type="PackedScene" uid="uid://bwmhwtga37kl2" path="res://scenes/levels/puzzles/houseTorchPuzzle/lampPuzzleEntry.tscn" id="3_jkswm"]
 [ext_resource type="PackedScene" uid="uid://bhgoqh3obu3ue" path="res://scenes/scenery/lamp.tscn" id="3_wrh6t"]
+[ext_resource type="Resource" uid="uid://81bhnuv54lyl" path="res://resources/puzzleResources/houseTorchPuzzle.tres" id="4_wrf30"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_472hf"]
 resource_local_to_scene = true
@@ -87,14 +89,16 @@ transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5
 [node name="lamplight2" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
 transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, -1, 0, 0)
 
-[node name="lamplight3" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
-transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 3, 2.38419e-07, 0)
-
 [node name="lamplight4" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
 transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 1, 0, 0)
 
 [node name="lamplight5" parent="walls/3/lamps2" instance=ExtResource("3_wrh6t")]
 transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 5, 2.38419e-07, 0)
+
+[node name="PuzzleEntry" parent="walls/3/lamps2" instance=ExtResource("3_jkswm")]
+transform = Transform3D(0, -2.18557e-07, 5, -5, 5.96244e-08, 0, -5.96244e-08, -5, -2.18557e-07, 3.03412, 0, 0)
+puzzleResource = ExtResource("4_wrf30")
+testText = "Test"
 
 [node name="4" type="StaticBody3D" parent="walls"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 5, -6, 0)
