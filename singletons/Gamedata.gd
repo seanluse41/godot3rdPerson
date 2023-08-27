@@ -1,6 +1,6 @@
 extends Node
 
-@onready var playerData : PlayerData
+var playerData : PlayerData
 
 var saveID
 var saveFilePath = "user://save/"
@@ -17,14 +17,17 @@ func _verifySaveDirectory():
 	DirAccess.make_dir_absolute(saveFilePath)
 	Signals.saveDataDirectoryOK.emit()
 
-func _getPuzzleData(_id):
-	pass
-
 func _savePuzzleData(puzzleResource):
 	ResourceSaver.save(puzzleResource, saveFilePath + saveFileName)
 	Signals.puzzleSaved.emit()
 
 func _loadPuzzleData(puzzleID):
-	puzzleSavedData = ResourceLoader.load(saveFilePath + saveFileName)
-	Signals.puzzleLoaded.emit()
-	return puzzleSavedData
+	if FileAccess.file_exists(saveFilePath + saveFileName):
+		puzzleSavedData = ResourceLoader.load(saveFilePath + saveFileName)
+		Signals.puzzleLoaded.emit()
+		return puzzleSavedData
+	else:
+		return null
+
+func _loadSave(id):
+	pass

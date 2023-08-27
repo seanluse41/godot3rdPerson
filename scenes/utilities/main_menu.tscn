@@ -24,6 +24,7 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="Main" type="Control" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Main"]
@@ -68,7 +69,6 @@ theme_override_font_sizes/font_size = 41
 text = "Quit"
 
 [node name="LoadScreen" type="Control" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/LoadScreen"]
@@ -96,6 +96,7 @@ theme_override_constants/margin_bottom = 64
 
 [node name="save1" type="Button" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
+disabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer/save1"]
 layout_mode = 2
@@ -125,6 +126,7 @@ theme_override_constants/margin_bottom = 64
 [node name="save2" type="Button" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+disabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2/save2"]
 layout_mode = 2
@@ -154,6 +156,7 @@ theme_override_constants/margin_bottom = 64
 [node name="save3" type="Button" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+disabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3/save3"]
 layout_mode = 2
@@ -191,6 +194,21 @@ text = "Back"
 visible = false
 layout_mode = 2
 
+[node name="backButton2" type="Button" parent="MarginContainer/OptionsScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -96.0
+offset_right = 78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
 [connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Load" to="." method="_on_load_button_up"]
 [connection signal="button_up" from="MarginContainer/Main/MarginContainer/VBoxContainer/Options" to="." method="_on_options_button_up"]
@@ -199,3 +217,4 @@ layout_mode = 2
 [connection signal="pressed" from="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer2/save2" to="." method="_on_save_2_pressed"]
 [connection signal="pressed" from="MarginContainer/LoadScreen/MarginContainer/HBoxContainer/MarginContainer3/save3" to="." method="_on_save_3_pressed"]
 [connection signal="pressed" from="MarginContainer/LoadScreen/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OptionsScreen/backButton2" to="." method="_on_back_button_pressed"]
