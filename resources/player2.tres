@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://kr3r27djm268"]
+
+[ext_resource type="Script" path="res://resources/playerData.gd" id="1_cooqe"]
+
+[resource]
+script = ExtResource("1_cooqe")
+id = 2
+name = ""
+puzzlesSolved = 0
+inventory = Array[Resource]([])
+currentMap = ""

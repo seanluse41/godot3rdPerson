@@ -5,6 +5,7 @@ class_name PlayerData
 @export var name: String
 @export var puzzlesSolved : int
 @export var inventory : Array[Resource]
+@export var currentMap : String
 
 func _getPlayerID():
 	return id
@@ -14,3 +15,6 @@ func _getPuzzlesSolved():
 
 func _checkInventory():
 	pass
+
+func _getCurrentMap():
+	return currentMap

@@ -230,6 +230,14 @@ shortcut = SubResource("Shortcut_r7csu")
 text = "Resume
 "
 
+[node name="saveButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="loadButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
 [node name="quitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -242,4 +250,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/resumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/saveButton" to="." method="_on_save_button_button_up"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/loadButton" to="." method="_on_load_button_button_up"]
 [connection signal="button_up" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/quitButton" to="." method="_on_quit_button_button_up"]

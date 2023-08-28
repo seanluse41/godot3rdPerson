@@ -21,3 +21,13 @@ func _unPause():
 
 func _on_resume_button_pressed():
 	_unPause()
+
+
+func _on_save_button_button_up():
+	showConfirmDialogue("save")
+
+func showConfirmDialogue(option):
+	pass
+
+func _on_load_button_button_up():
+	showConfirmDialogue("load")

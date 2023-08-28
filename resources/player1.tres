@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://ci0yjbfnv6cwn"]
+
+[ext_resource type="Script" path="res://resources/playerData.gd" id="1_fc2hu"]
+
+[resource]
+script = ExtResource("1_fc2hu")
+id = 1
+name = "Sean"
+puzzlesSolved = 1
+inventory = Array[Resource]([])
+currentMap = "res://scenes/levels/areas/inHouse1.tscn"

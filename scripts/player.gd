@@ -5,7 +5,7 @@ extends CharacterBody3D
 @onready var camera_mount = $CameraMount
 @onready var interact_timer = $interactBox/interactTimer
 @onready var animation_player = %AnimationPlayer
-
+@export var playerData : PlayerData
 
 var SPEED = 3.0
 const JUMP_VELOCITY = 4.5
