@@ -31,3 +31,6 @@ func _loadPuzzleData(puzzleID):
 
 func _loadSave(id):
 	pass
+
+func _saveGame(id):
+	pass
