@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5ufia7vsu5yv"]
+
+[ext_resource type="Script" path="res://singletons/GlobalPuzzleList.gd" id="1_cjcyr"]
+[ext_resource type="Resource" uid="uid://bilae8ypa6yno" path="res://resources/puzzleResources/puzzleList.tres" id="2_y1osp"]
+
+[node name="GlobalPuzzleList" type="Node"]
+script = ExtResource("1_cjcyr")
+PuzzleList = ExtResource("2_y1osp")

@@ -24,7 +24,7 @@ TextBox="*res://singletons/textBox.tscn"
 GlobalAudio="*res://singletons/globalAudio.tscn"
 PauseMenu="*res://singletons/pauseMenu.tscn"
 Gamedata="*res://singletons/Gamedata.gd"
-MainPlayer="*res://scenes/characters/player.tscn"
+GlobalPuzzleList="*res://singletons/GlobalPuzzleList.tscn"
 
 [display]
 

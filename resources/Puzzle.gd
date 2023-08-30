@@ -1,4 +1,4 @@
-extends Resource
+extends PuzzleList
 
 class_name Puzzle
 
@@ -8,13 +8,12 @@ class_name Puzzle
 @export var type: String
 @export var path: String
 @export var returnPath: String
-@export var audioTrack: AudioStreamMP3
 
-var puzzleSavedData
+var loadedPuzzleData : Puzzle
 
 func _puzzleSolved(puzzleResource):
 	puzzleResource.solved = true
-	_savePuzzleData(puzzleResource)
+	_savePuzzles()
 
 func _getPuzzleStatus():
 	return self.solved
@@ -22,21 +21,12 @@ func _getPuzzleStatus():
 func _getPuzzlePath():
 	return self.path
 
-func _savePuzzleData(puzzleResource):
-	Gamedata._verifySaveDirectory()
-	Gamedata._savePuzzleData(puzzleResource)
-
 func _loadData():
-	puzzleSavedData = Gamedata._loadPuzzleData(self.id)
-	Signals.puzzleLoaded.emit()
-	return puzzleSavedData
-
-func _setMusic():
-	GlobalAudio._playAudio(audioTrack)
+	loadedPuzzleData = _getPuzzleResource(self.id)
+	return loadedPuzzleData
 
 func _enterPuzzle():
 	await SceneSwitcher.switchScene(path)
-	GlobalAudio._playAudio(audioTrack)
 
 func _exitPuzzle():
 	SceneSwitcher.switchScene(returnPath)
