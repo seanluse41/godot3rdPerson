@@ -1,10 +1,10 @@
 extends Node
 
-var playerData : PlayerData
+var playerData : PlayerData = PlayerData.new()
 
-var saveID
+var saveID : String
 var saveFilePath = "user://save/"
-var saveFileName = "save-%s.tres" % [saveID]
+var saveFileName = "save-%s.tres" % [playerData._getPlayerID()]
 var puzzleSavedData : Resource
 
 func _newGame():

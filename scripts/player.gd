@@ -29,6 +29,7 @@ func _ready():
 	Signals.canInteract.connect(_handleCanInteractBox)
 	Signals.canNotInteract.connect(_handleCanNotInteractBox)
 	Signals.leftInteractArea.connect(_handleLeftInteractArea)
+	Signals.loadingStarted.connect(_updateCurrentMap)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
@@ -150,3 +151,9 @@ func _on_interact_timer_timeout():
 
 func _on_animation_player_animation_finished(_anim_name):
 	_unlockCharacter()
+
+func _updateCurrentMap(nextScene):
+	print(playerData)
+	print(playerData.currentMap)
+	playerData.currentMap = nextScene
+	print(playerData.currentMap)

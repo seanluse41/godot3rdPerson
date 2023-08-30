@@ -10,7 +10,7 @@ signal leftInteractArea
 
 signal interactionFinished
 
-signal loadingStarted
+signal loadingStarted(scenePath)
 
 signal animationFinished
 
