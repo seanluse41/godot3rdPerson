@@ -1,7 +1,5 @@
 extends PuzzleList
-
 class_name Puzzle
-
 @export var id: int
 @export var name: String
 @export var solved: bool
@@ -9,7 +7,7 @@ class_name Puzzle
 @export var path: String
 @export var returnPath: String
 
-var loadedPuzzleData : Puzzle
+var loadedPuzzleData
 
 func _puzzleSolved(puzzleResource):
 	puzzleResource.solved = true
@@ -22,7 +20,7 @@ func _getPuzzlePath():
 	return self.path
 
 func _loadData():
-	loadedPuzzleData = _getPuzzleResource(self.id)
+	loadedPuzzleData = await _getPuzzleResource(self.id)
 	return loadedPuzzleData
 
 func _enterPuzzle():

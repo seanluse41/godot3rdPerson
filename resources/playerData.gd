@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerData
 
-@export var id: int
+@export var id: String
 @export var name: String
 @export var puzzlesSolved : int
 @export var inventory : Array[Resource]
