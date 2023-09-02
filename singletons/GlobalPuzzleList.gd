@@ -1,7 +1,6 @@
 extends Node
 
-@export var PuzzleList : PuzzleList
+@export var globalPuzzleList : PuzzleList
 
 func _setList(list) -> void:
-	print(list)
-	PuzzleList.puzzleList = list
+	self.globalPuzzleList = list

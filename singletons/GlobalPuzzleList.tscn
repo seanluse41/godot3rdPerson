@@ -5,4 +5,4 @@
 
 [node name="GlobalPuzzleList" type="Node"]
 script = ExtResource("1_cjcyr")
-PuzzleList = ExtResource("2_y1osp")
+globalPuzzleList = ExtResource("2_y1osp")
