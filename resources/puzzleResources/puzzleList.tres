@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="PuzzleList" load_steps=4 format=3 uid="uid://bilae8ypa6yno"]
-
-[ext_resource type="Resource" uid="uid://ovtg423qornm" path="res://resources/puzzleResources/orangeBoxPuzzle.tres" id="1_7tvsy"]
-[ext_resource type="Script" path="res://resources/puzzleList.gd" id="1_gvpiv"]
-[ext_resource type="Resource" uid="uid://81bhnuv54lyl" path="res://resources/puzzleResources/houseTorchPuzzle.tres" id="2_7t2cr"]
-
-[resource]
-script = ExtResource("1_gvpiv")
-puzzleList = Array[Resource("res://resources/Puzzle.gd")]([ExtResource("1_7tvsy"), ExtResource("2_7t2cr")])

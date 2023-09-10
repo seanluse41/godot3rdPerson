@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b58xv1joypxo5" path="res://imports/kenny/Orange/texture_09.png" id="1_m3taq"]
 [ext_resource type="Texture2D" uid="uid://ct6ufttqsgq22" path="res://imports/kenny/Orange/texture_04.png" id="2_j84yj"]
-[ext_resource type="Script" path="res://scripts/orangeBox.gd" id="2_y0xsv"]
-[ext_resource type="Resource" uid="uid://ovtg423qornm" path="res://resources/puzzleResources/orangeBoxPuzzle.tres" id="4_g8f16"]
+[ext_resource type="Script" path="res://scenes/levels/puzzles/orangeBox/orangeBox.gd" id="2_y0xsv"]
+[ext_resource type="Resource" uid="uid://givqb4xmcbaf" path="res://resources/puzzleResources/orangeBoxPuzzle.tres" id="4_g8f16"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gxbu"]
 albedo_texture = ExtResource("1_m3taq")
@@ -28,6 +28,7 @@ mesh = SubResource("BoxMesh_2at7u")
 surface_material_override/0 = SubResource("StandardMaterial3D_ft88o")
 script = ExtResource("2_y0xsv")
 puzzleResource = ExtResource("4_g8f16")
+testText = "Puzzle Solved. Go Find More!"
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16

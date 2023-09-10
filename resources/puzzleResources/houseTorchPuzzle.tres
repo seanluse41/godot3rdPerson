@@ -1,14 +1,12 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=3 format=3 uid="uid://81bhnuv54lyl"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://dq6towx41wtt2"]
 
 [ext_resource type="Script" path="res://resources/Puzzle.gd" id="1_j0yaa"]
-[ext_resource type="AudioStream" uid="uid://d1tmrwajb1h5w" path="res://imports/sounds/zelda-in-a-house.mp3" id="1_wn7ym"]
 
 [resource]
 script = ExtResource("1_j0yaa")
 id = 1
 name = "HouseTorchPuzzle"
 solved = false
-type = "visual"
+type = "Visual"
 path = "res://scenes/levels/puzzles/houseTorchPuzzle/houseTorchPuzzle.tscn"
 returnPath = "res://scenes/levels/areas/inHouse1.tscn"
-audioTrack = ExtResource("1_wn7ym")

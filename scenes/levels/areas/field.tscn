@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b1jlg1gp7mrld" path="res://scenes/utilities/cloud_spawner.tscn" id="12_jlxnx"]
 [ext_resource type="PackedScene" uid="uid://bprykj80hkphr" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_1.tscn" id="13_xmeya"]
 [ext_resource type="AudioStream" uid="uid://d1tmrwajb1h5w" path="res://imports/sounds/zelda-in-a-house.mp3" id="14_thccj"]
-[ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/scenery/orange_box.tscn" id="15_vo6mu"]
+[ext_resource type="PackedScene" uid="uid://bdho5lfj3ehly" path="res://scenes/levels/puzzles/orangeBox/orange_box.tscn" id="15_vo6mu"]
 [ext_resource type="PackedScene" path="res://scenes/scenery/LogHouses/scenes/Buildings/Build_2.tscn" id="16_4uls4"]
 [ext_resource type="PackedScene" uid="uid://bl5scl7i3rpgf" path="res://scenes/characters/player.tscn" id="17_ttvs7"]
 

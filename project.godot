@@ -23,8 +23,7 @@ SceneTransition="*res://singletons/scene_transition.tscn"
 TextBox="*res://singletons/textBox.tscn"
 GlobalAudio="*res://singletons/globalAudio.tscn"
 PauseMenu="*res://singletons/pauseMenu.tscn"
-Gamedata="*res://singletons/Gamedata.gd"
-GlobalPuzzleList="*res://singletons/GlobalPuzzleList.tscn"
+SaveSystem="*res://addons/save_system/SaveSystem.gd"
 
 [display]
 
@@ -35,7 +34,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg")
+enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/save_system/plugin.cfg")
 
 [input]
 

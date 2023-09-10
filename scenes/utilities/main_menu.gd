@@ -22,7 +22,7 @@ func _ready():
 		save_3.disabled = false
 
 func _on_start_button_up():
-	Gamedata._newGame()
+	SceneSwitcher._newGame()
 
 func _on_load_button_up():
 	main.hide()
@@ -45,8 +45,8 @@ func _on_back_button_pressed():
 	main.show()
 
 func _on_save_1_pressed():
-	Gamedata._loadSave("1")
+	pass
 func _on_save_2_pressed():
-	Gamedata._loadSave("2")
+	pass
 func _on_save_3_pressed():
-	Gamedata._loadSave("3")
+	pass

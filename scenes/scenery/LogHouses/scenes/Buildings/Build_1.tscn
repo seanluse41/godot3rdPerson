@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bprykj80hkphr"]
 
 [ext_resource type="Material" path="res://scenes/scenery/LogHouses/Gltf/RoofShingle.material" id="1"]
-[ext_resource type="Script" path="res://scripts/house1.gd" id="1_kstuk"]
+[ext_resource type="Script" path="res://scenes/levels/areas/house1.gd" id="1_kstuk"]
 [ext_resource type="Material" path="res://scenes/scenery/LogHouses/Gltf/WoodTrim.material" id="2"]
 [ext_resource type="Material" path="res://scenes/scenery/LogHouses/Gltf/WoodWall.material" id="3"]
 [ext_resource type="Material" path="res://scenes/scenery/LogHouses/Gltf/Glass.material" id="4"]

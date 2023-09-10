@@ -1,7 +1,6 @@
 extends Interactable
 @onready var collision_shape_3d = $Area3D/CollisionShape3D
 
-
 @export var puzzleResource: Resource
 @export var testText: String
 var inPuzzle : bool = false
@@ -11,7 +10,7 @@ func _ready():
 		inPuzzle = true
 	else:
 		inPuzzle = false
-	var loadedResource = await puzzleResource._loadData()
+	var loadedResource = await puzzleResource._loadData(puzzleResource.name)
 	if loadedResource == null:
 		pass
 	else:

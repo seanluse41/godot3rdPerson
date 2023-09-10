@@ -49,8 +49,7 @@ func _on_load_button_button_up():
 	showLoadMenu()
 
 func _saveGame():
-	var playerID = PlayerData.getPlayerID()
-	Gamedata._saveGame(playerID)
+	pass
 
 func _loadGame():
 	pass

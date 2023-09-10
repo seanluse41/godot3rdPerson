@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwmhwtga37kl2"]
+[gd_scene load_steps=10 format=3 uid="uid://bwmhwtga37kl2"]
 
 [ext_resource type="PackedScene" uid="uid://enkt6vr4levo" path="res://imports/models/lamplight.FBX" id="1_70btc"]
 [ext_resource type="Script" path="res://scenes/levels/puzzles/houseTorchPuzzle/lampPuzzleEntry.gd" id="2_cgi2d"]
+[ext_resource type="Resource" uid="uid://dq6towx41wtt2" path="res://resources/puzzleResources/houseTorchPuzzle.tres" id="3_qvgr8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbj7e"]
 transparency = 1
@@ -31,6 +32,7 @@ radius = 0.210271
 [node name="lamplight" instance=ExtResource("1_70btc")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("2_cgi2d")
+puzzleResource = ExtResource("3_qvgr8")
 
 [node name="Omni001" parent="RootNode" index="0"]
 transform = Transform3D(0.2, 0, 0, 0, -2.38419e-08, -0.2, 0, 0.2, -2.38419e-08, -0.0523749, 0.0310854, 0)
